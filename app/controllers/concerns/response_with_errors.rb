@@ -14,12 +14,9 @@ module ResponseWithErrors
 
   def token_not_match
     render json: { errors: I18n.t('.token_not_match') }, status: :unauthorized
-    return
   end
 
   def record_not_found
     render json: { errors: I18n.t('.record_not_found') }, status: 404
-    return
   end
-
 end
