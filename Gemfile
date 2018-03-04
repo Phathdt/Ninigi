@@ -12,7 +12,6 @@ gem 'jbuilder', '~> 2.5'
 
 ## Authorization
 gem 'devise'
-gem 'jwt', '~>1.5.3'
 
 group :development do
   gem 'byebug'
