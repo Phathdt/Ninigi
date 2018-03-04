@@ -1,7 +1,11 @@
 module Api::V1
   class Auth::RegistrationsController < BaseApiController
+    before_action :install_service, only: []
+
     def create
-      byebug
+      @user = User.new(registration_params)
+      message = simple_create(@user)
+      session = @user.sessions.create.reload
     end
 
     private
