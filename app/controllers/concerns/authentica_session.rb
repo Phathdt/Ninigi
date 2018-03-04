@@ -5,15 +5,13 @@ module AuthenticaSession
 
   def authenticate_request!
     unless token_presence?
-      render json: { errors: I18n.t('.not_authenticated') }, status: :unauthorized
-      return
+      raise Error::NotAuthenticated
     end
 
     session = Session.find_by(token: token, active: true)
 
     unless session
-      render json: { errors: I18n.t('.not_match') }, status: :unauthorized
-      return
+      raise Error::TokenNotMatch
     end
 
     @current_user = session.user
