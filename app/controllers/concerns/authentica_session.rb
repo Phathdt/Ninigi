@@ -5,7 +5,7 @@ module AuthenticaSession
 
   def authenticate_request!
     unless token_presence?
-      render json: { errors: I18n.t('.not_authenticated')}, status: :unauthorized
+      render json: { errors: I18n.t('.not_authenticated') }, status: :unauthorized
       return
     end
 
