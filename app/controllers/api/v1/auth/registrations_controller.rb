@@ -12,7 +12,7 @@ module Api::V1
     private
 
     def registration_params
-      params.require(:users).permit(:email, :password, :password_confirmation)
+      params.require(:users).permit(:email, :password, :password_confirmation, :name)
     end
   end
 end

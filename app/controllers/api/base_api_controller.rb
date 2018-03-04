@@ -1,5 +1,6 @@
 class Api::BaseApiController < ActionController::API
   include AuthenticaSession
+  include ResponseWithErrors
   include SimpleSave
 
   before_action :authenticate_request!
@@ -8,7 +9,7 @@ class Api::BaseApiController < ActionController::API
   private
 
   def install_service
-    current_user = ''
-    @service ||= "#{controller_name.singularize.capitalize}Service".constantize.new current_user
+    service = "#{controller_name.singularize.capitalize}Service".constantize
+    @service ||= service.new current_user
   end
 end
