@@ -1,6 +1,8 @@
 class Api::BaseApiController < ActionController::API
+  include AuthenticaSession
   include SimpleSave
 
+  before_action :authenticate_request!
   before_action :install_service
 
   private
