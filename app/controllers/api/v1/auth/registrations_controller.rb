@@ -1,7 +1,7 @@
 module Api::V1
   class Auth::RegistrationsController < BaseApiController
     before_action :authenticate_request!, only: %i[]
-    before_action :install_service, only: %i[]
+    before_action :service, only: %i[]
 
     def create
       @user = User.new(registration_params)

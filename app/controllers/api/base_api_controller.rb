@@ -4,12 +4,12 @@ class Api::BaseApiController < ActionController::API
   include SimpleSave
 
   before_action :authenticate_request!
-  before_action :install_service
+  before_action :service
 
   private
 
-  def install_service
-    service = "#{controller_name.singularize.capitalize}Service".constantize
+  def service
+    service ||= "#{controller_name.singularize.capitalize}Service".constantize
     @service ||= service.new current_user
   end
 end
