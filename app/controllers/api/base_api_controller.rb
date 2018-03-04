@@ -2,6 +2,7 @@ class Api::BaseApiController < ActionController::API
   include AuthenticaSession
   include ResponseWithErrors
   include SimpleSave
+  include SimpleDestroy
 
   before_action :authenticate_request!
   before_action :service
