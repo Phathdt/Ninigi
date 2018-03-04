@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       namespace :auth do
         post :sign_up, to: 'registrations#create'
         post :sign_in, to: 'sessions#create'
+        delete :sign_out, to: 'sessions#destroy'
       end
     end
   end

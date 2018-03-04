@@ -8,9 +8,9 @@ module AuthenticaSession
       raise Error::NotAuthenticated
     end
 
-    session = Session.find_by(token: token, active: true)
+    @session = Session.find_by(token: token, active: true)
 
-    unless session
+    unless @session
       raise Error::TokenNotMatch
     end
 
@@ -27,5 +27,9 @@ module AuthenticaSession
 
   def current_user
     @current_user
+  end
+
+  def session
+    @session
   end
 end
