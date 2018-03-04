@@ -1,6 +1,6 @@
 module Api::V1
   class Auth::RegistrationsController < BaseApiController
-    before_action :authenticate_request!, only: %i[abc]
+    before_action :authenticate_request!, only: %i[]
     before_action :install_service, only: %i[]
 
     def create
