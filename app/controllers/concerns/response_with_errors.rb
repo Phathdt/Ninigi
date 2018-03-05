@@ -9,14 +9,21 @@ module ResponseWithErrors
   private
 
   def not_authenticated
-    render json: { errors: I18n.t('.not_authenticated') }, status: :unauthorized
+    render_error(I18n.t('.not_authenticated'), :unauthorized)
   end
 
   def token_not_match
-    render json: { errors: I18n.t('.token_not_match') }, status: :unauthorized
+    render_error(I18n.t('.token_not_match'), :unauthorized)
   end
 
   def record_not_found
-    render json: { errors: I18n.t('.record_not_found') }, status: 404
+    render_error(I18n.t('.record_not_found'), :not_found)
+  end
+
+  def render_error(message, status)
+    status_code = SYMBOL_TO_STATUS_CODE[status]
+    render json: {
+      error: { status: status_code, message: message }
+    }, status: status
   end
 end
