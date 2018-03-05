@@ -7,7 +7,7 @@ module Api::V1
       @user = User.new(registration_params)
       message = simple_create(@user)
       token = @user.sessions.create.reload.token
-      render json: { token: token }, status: 200
+      render_json({ token: token }, :success)
     end
 
     private

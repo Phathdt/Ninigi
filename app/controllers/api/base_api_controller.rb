@@ -1,6 +1,7 @@
 class Api::BaseApiController < ActionController::API
   include AuthenticaSession
   include ResponseWithErrors
+  include ResponseWithJson
   include SimpleSave
   include SimpleDestroy
 
