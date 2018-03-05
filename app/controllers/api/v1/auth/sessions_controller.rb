@@ -3,12 +3,13 @@ module Api::V1
     before_action :authenticate_request!, only: %i[destroy]
 
     def create
-      message, status = service.create(session_params)
-      render json: message, status: status
+      data, status = service.create(session_params)
+      render_json(data, status)
     end
 
     def destroy
-      custom_destroy @session
+      data, status = service.destroy(@session)
+      render_json(data, status)
     end
 
     private
