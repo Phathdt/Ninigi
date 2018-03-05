@@ -4,7 +4,7 @@ module FlashBuilder
   protected
 
   def build_flash(status, options = {})
-    status ? { notice: success_msg(options) } : { alert: failure_msg(options) }
+    status ? { notice: success_msg(options) } : { alert: failure_msg(options), errors: errors(options) }
   end
 
   def success_msg(options = {})
@@ -18,9 +18,13 @@ module FlashBuilder
     flash_of_status('failure', options)
   end
 
+  def errors(options = {})
+    options[:obj].errors.full_messages.first
+  end
+
   def flash_of_status(status, options = {})
-    controller = options.fetch(:controller, params[:controller])
-    action     = options.fetch(:action, params[:action])
+    controller = options.fetch(:controller)
+    action     = options.fetch(:action)
 
     I18n.t("#{controller.gsub(/.+\//, '')}.#{action}.#{status}")
   end

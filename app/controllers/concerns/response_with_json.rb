@@ -4,6 +4,10 @@ module ResponseWithJson
   private
 
   def render_json(data, status)
-    render json: data, status: status
+    if data[:errors]
+      render_error(data[:errors], status)
+    else
+      render json: data, status: status
+    end
   end
 end

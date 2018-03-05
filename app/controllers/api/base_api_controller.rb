@@ -2,8 +2,6 @@ class Api::BaseApiController < ActionController::API
   include AuthenticaSession
   include ResponseWithErrors
   include ResponseWithJson
-  include SimpleSave
-  include SimpleDestroy
 
   before_action :service
 
@@ -11,6 +9,6 @@ class Api::BaseApiController < ActionController::API
 
   def service
     service ||= "#{controller_name.singularize.capitalize}Service".constantize
-    @service ||= service.new current_user
+    @service ||= service.new(current_user, controller_name, action_name)
   end
 end
