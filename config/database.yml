@@ -14,5 +14,3 @@ test:
 production:
   <<: *default
   database: Ninigi_production
-  username: Ninigi
-  password: <%= ENV['NINIGI_DATABASE_PASSWORD'] %>
