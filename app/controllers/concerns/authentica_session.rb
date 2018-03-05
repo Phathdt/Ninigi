@@ -1,6 +1,10 @@
 module AuthenticaSession
   extend ActiveSupport::Concern
 
+  included do
+    before_action :authenticate_request!
+  end
+
   protected
 
   def authenticate_request!

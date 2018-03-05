@@ -4,7 +4,6 @@ class Api::BaseApiController < ActionController::API
   include SimpleSave
   include SimpleDestroy
 
-  before_action :authenticate_request!
   before_action :service
 
   private
