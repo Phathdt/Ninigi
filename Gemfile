@@ -19,7 +19,11 @@ group :development do
   gem 'pry-nav'
   gem 'pry-rails'
   gem 'rails-erd', require: false
-  gem 'web-console', '>= 3.3.0'
+end
+
+group :development, :test do
+    gem 'rspec-rails'
+    gem 'factory_bot_rails'
 end
 
 ## Ruby version
