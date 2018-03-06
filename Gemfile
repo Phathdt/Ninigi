@@ -9,6 +9,7 @@ gem 'rails', '~> 5.1.5'
 gem 'i18n'
 gem 'i18n-js', '>= 3.0.1'
 gem 'jbuilder', '~> 2.5'
+gem 'active_model_serializers'
 
 ## Authorization
 gem 'devise'
