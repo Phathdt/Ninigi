@@ -23,5 +23,7 @@ module Ninigi
     config.autoload_paths += %W(#{config.root}/lib)
 
     config.generators.system_tests = nil
+
+    config.api_only = true
   end
 end
