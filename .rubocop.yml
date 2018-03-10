@@ -379,8 +379,18 @@ Style/TrailingCommaInArguments:
     - no_comma
   Enabled: false
 
-Style/TrailingCommaInLiteral:
-  Description: 'Checks for trailing comma in array and hash literals.'
+Style/TrailingCommaInArrayLiteral:
+  Description: 'Checks for trailing comma in array literals.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas'
+  EnforcedStyleForMultiline: comma
+  SupportedStylesForMultiline:
+    - comma
+    - consistent_comma
+    - no_comma
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Description: 'Checks for trailing comma in hash literals.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas'
   EnforcedStyleForMultiline: comma
   SupportedStylesForMultiline:
@@ -477,7 +487,7 @@ Lint/CircularArgumentReference:
   Description: "Don't refer to the keyword argument in the default value."
   Enabled: false
 
-Lint/ConditionPosition:
+Layout/ConditionPosition:
   Description: >-
                  Checks for condition placed in a confusing position relative to
                  the keyword.
@@ -544,13 +554,6 @@ Lint/RequireParentheses:
 
 Lint/UnderscorePrefixedVariableName:
   Description: 'Do not use prefix `_` for a variable that is used.'
-  Enabled: false
-
-Lint/UnneededDisable:
-  Description: >-
-                 Checks for rubocop:disable comments that can be removed.
-                 Note: this cop is not disabled when disabling all cops.
-                 It must be explicitly disabled.
   Enabled: false
 
 Lint/Void:
@@ -672,6 +675,19 @@ Metrics/AbcSize:
 Documentation:
   Enabled: false
 
+Style/MixinUsage:
+  Exclude:
+    - 'bin/bundle'
+    - 'bin/setup'
+    - 'bin/update'
+
+Style/ExpandPathArguments:
+  Exclude:
+    - 'spec/rails_helper.rb'
+    - 'bin/bundle'
+    - 'bin/setup'
+    - 'bin/update'
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -753,7 +769,7 @@ Rails/OutputSafety:
     - 'app/datatables/shipping_units_datatable.rb'
     - 'app/helpers/projects_helper.rb'
 
-Lint/RescueWithoutErrorClass:
+Style/RescueStandardError:
   Exclude:
     - 'features/step_definitions/steps.rb'
 
@@ -771,10 +787,6 @@ Lint/UnusedMethodArgument:
 Lint/UnusedBlockArgument:
   Enabled: false
 
-Performance/HashEachMethods:
-  Exclude:
-    - 'features/step_definitions/admin/contact_steps.rb'
-    - 'app/services/product_service.rb'
 
 Naming/AccessorMethodName:
   Enabled: false
