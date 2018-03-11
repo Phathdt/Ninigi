@@ -16,6 +16,7 @@ gem 'devise', '~> 4.4.1'
 
 ## utilities
 gem 'rack-cors', '~> 1.0.2'
+gem 'geocoder', '~> 1.4.6'
 
 group :development do
   gem 'byebug'
