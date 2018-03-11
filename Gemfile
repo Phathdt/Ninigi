@@ -7,6 +7,7 @@ gem 'rails', '~> 5.1.5'
 
 ## Healper gems
 gem 'active_model_serializers', '~> 0.10.7'
+gem 'fast_jsonapi', '~> 1.0.17'
 gem 'i18n'
 gem 'i18n-js', '>= 3.0.1'
 gem 'jbuilder', '~> 2.7.0'
@@ -15,8 +16,8 @@ gem 'jbuilder', '~> 2.7.0'
 gem 'devise', '~> 4.4.1'
 
 ## utilities
-gem 'rack-cors', '~> 1.0.2'
 gem 'geocoder', '~> 1.4.6'
+gem 'rack-cors', '~> 1.0.2'
 
 group :development do
   gem 'byebug'

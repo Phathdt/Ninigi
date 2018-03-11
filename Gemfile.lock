@@ -66,6 +66,11 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
+    fast_jsonapi (1.0.17)
+      activerecord (~> 5.0)
+      activesupport (~> 5.0)
+      multi_json (~> 1.12)
+      oj (~> 3.3)
     ffi (1.9.23)
     geocoder (1.4.6)
     globalid (0.4.1)
@@ -95,6 +100,7 @@ GEM
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    oj (3.5.0)
     orm_adapter (0.5.0)
     pg (1.0.0)
     pry (0.10.4)
@@ -190,6 +196,7 @@ DEPENDENCIES
   byebug
   devise (~> 4.4.1)
   factory_bot_rails
+  fast_jsonapi (~> 1.0.17)
   geocoder (~> 1.4.6)
   i18n
   i18n-js (>= 3.0.1)

@@ -1,7 +1,6 @@
 module Api::V1
   class Auth::RegistrationsController < BaseApiController
     before_action :authenticate_request!, only: %i[]
-    # before_action :service, only: %i[]
 
     def create
       data, status = service.create(registration_params)
