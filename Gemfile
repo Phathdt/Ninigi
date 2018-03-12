@@ -21,6 +21,7 @@ gem 'rack-cors', '~> 1.0.2'
 
 group :development do
   gem 'byebug'
+  gem 'foreman', '~> 0.82.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'pry-nav'
   gem 'pry-rails'
