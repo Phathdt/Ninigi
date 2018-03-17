@@ -4,4 +4,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :sessions, dependent: :destroy
+
+  after_create :generate_session
+
+  def generate_session
+    sessions.create
+  end
 end

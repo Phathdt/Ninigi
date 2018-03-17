@@ -26,7 +26,7 @@ module AuthenticaSession
   end
 
   def token_presence?
-    token
+    !!token
   end
 
   def current_user
