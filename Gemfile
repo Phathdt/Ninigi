@@ -11,6 +11,7 @@ gem 'fast_jsonapi', '~> 1.0.17'
 gem 'i18n'
 gem 'i18n-js', '>= 3.0.1'
 gem 'jbuilder', '~> 2.7.0'
+gem 'figaro', '~> 1.1.1'
 
 ## Authorization
 gem 'devise', '~> 4.4.1'
