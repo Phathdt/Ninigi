@@ -3,8 +3,7 @@ class RegistrationService < BaseService
     user = User.new(params)
     message = simple_create(user, options)
     if message[:notice]
-      session = user.sessions.first
-      [session, :ok]
+      [message, :ok]
     else
       [{ errors: message[:errors] }, :unprocessable_entity]
     end
