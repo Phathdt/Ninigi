@@ -59,6 +59,8 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.6.1)
+      devise (>= 4.4)
     diff-lcs (1.3)
     erubi (1.7.1)
     factory_bot (4.8.2)
@@ -199,6 +201,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.7)
   byebug
   devise (~> 4.4.1)
+  devise-i18n
   factory_bot_rails
   fast_jsonapi (~> 1.0.17)
   figaro (~> 1.1.1)

@@ -3,7 +3,7 @@ class RegistrationService < BaseService
     user = User.new(params)
     message = simple_create(user, options)
     if message[:notice]
-      [message, :ok]
+      [{notice: I18n.t('devise.registrations.signed_up_but_inactive')}, :ok]
     else
       [{ errors: message[:errors] }, :unprocessable_entity]
     end

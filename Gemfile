@@ -12,6 +12,7 @@ gem 'i18n'
 gem 'i18n-js', '>= 3.0.1'
 gem 'jbuilder', '~> 2.7.0'
 gem 'figaro', '~> 1.1.1'
+gem 'devise-i18n'
 
 ## Authorization
 gem 'devise', '~> 4.4.1'
