@@ -91,6 +91,12 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: ENV['DOMAIN_NAME'] }
 
+  config.action_mailer.default_options = { from: ENV['SMTP_LOGIN'] }
+
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.raise_delivery_errors = true
+
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.perform_deliveries = true
@@ -101,24 +107,7 @@ Rails.application.configure do
     user_name: ENV['SMTP_LOGIN'],
     password: ENV['SMTP_PASSWORD'],
     domain: ENV['DOMAIN_NAME'],
-    authentication: :plain
+    authentication: :plain,
+    enable_starttls_auto: true
   }
-
-  # config.action_mailer.default :charset => "utf-8"
-
-  # config.action_mailer.raise_delivery_errors = true
-
-  # config.action_mailer.delivery_method = :smtp
-
-  # config.action_mailer.perform_deliveries = true
-
-  # config.action_mailer.smtp_settings = {
-  #   port: ENV['SMTP_PORT'],
-  #   address: ENV['SMTP_SERVER'],
-  #   user_name: ENV['SMTP_LOGIN'],
-  #   password: ENV['SMTP_PASSWORD'],
-  #   domain: ENV['DOMAIN_NAME'],
-  #   authentication: :plain,
-  #   enable_starttls_auto: true
-  # }
 end
