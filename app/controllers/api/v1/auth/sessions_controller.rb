@@ -1,6 +1,6 @@
 module Api::V1
   class Auth::SessionsController < BaseApiController
-    before_action :authenticate_request!, only: %i[destroy]
+    prepend_before_action :authenticate_request!, only: %i[destroy]
 
     def create
       data, status = service.create(session_params)
