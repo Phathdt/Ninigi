@@ -22,6 +22,7 @@ gem 'geocoder', '~> 1.4.6'
 gem 'rack-cors', '~> 1.0.2'
 gem 'slim-rails'
 gem 'html2slim'
+gem 'delayed_job_active_record'
 
 group :development do
   gem 'byebug'
