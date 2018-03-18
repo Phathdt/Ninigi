@@ -8,4 +8,14 @@ class RegistrationService < BaseService
       [{ errors: message[:errors] }, :unprocessable_entity]
     end
   end
+
+  def active(params)
+    user = User.find_by!(email: params[:email])
+    if user.confirmation_token == params[:confirmation_token]
+      user.confirm
+      [{notice: I18n.t('devise.confirmations.confirmed')}, :ok]
+    else
+      [{notice: I18n.t('devise.confirmations.wrong_confirmation_token')}, :unprocessable_entity]
+    end
+  end
 end
