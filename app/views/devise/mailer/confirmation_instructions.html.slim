@@ -2,7 +2,8 @@ p
   = t('.greeting', recipient: @email)
 p
   = t('.instruction')
+p Token ne
 p
   = @resource.confirmation_token
-p
-  = link_to t('.action'), confirmation_url(@resource, confirmation_token: @token)
+/ p
+/   = link_to t('.action'), confirmation_url(@resource, confirmation_token: @token)
