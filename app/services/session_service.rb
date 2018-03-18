@@ -1,12 +1,16 @@
 class SessionService < BaseService
   def create(params)
-    user = User.find_by(email: params[:email])
+    user = User.find_by!(email: params[:email])
 
-    if user&.valid_password?(params[:password])
-      session = user.sessions.create
-      [session, :ok]
+    if user.valid_password?(params[:password])
+      if user.confirmed?
+        session = user.sessions.create
+        [session, :ok]
+      else
+        [{ message: I18n.t('devise.registrations.signed_up_but_inactive') }, 406]
+      end
     else
-      [{ message: I18n.t('.sign_in_fail') }, 406]
+      [{ message: I18n.t('devise.failure.not_found_in_database') }, 406]
     end
   end
 
