@@ -32,6 +32,7 @@ vi:
       updated: Đổi mật khẩu thành công! Bạn hiện đang đăng nhập.
       updated_not_active: Mật khẩu đã được đổi thành công.
       new_password: Bạn hãy nhập mật khẩu mới.
+      wrong_password: Mật khẩu cũ sai, xin kiểm tra lại
     registrations:
       destroyed: Tạm biệt! Tài khoản của bạn đã được xóa. Chúng tôi hy vọng sẽ sớm gặp lại bạn.
       signed_up: Xin chào! Bạn đã đăng ký thành công.
