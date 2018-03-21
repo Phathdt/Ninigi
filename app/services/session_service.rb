@@ -1,8 +1,8 @@
 class SessionService < BaseService
   def create(params)
-    user = User.find_by!(email: params[:email])
+    user = User.find_by(email: params[:email].downcase)
 
-    if user.valid_password?(params[:password])
+    if user&.valid_password?(params[:password])
       if user.confirmed?
         session = user.sessions.create
         [session, :ok]

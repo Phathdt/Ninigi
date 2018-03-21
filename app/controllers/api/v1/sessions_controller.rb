@@ -1,5 +1,5 @@
 module Api::V1
-  class Auth::SessionsController < BaseApiController
+  class SessionsController < BaseApiController
     prepend_before_action :authenticate_request!, only: %i[destroy]
 
     def create

@@ -1,30 +1,38 @@
 class PasswordService < BaseService
 
   def create(params)
-    user = User.find_by!(params)
-    user.send_reset_password_instructions
-    [ {notice: I18n.t('devise.passwords.send_instructions') }, :ok]
+    user = User.find_by(email: params[:email].downcase)
+
+    if user
+      user.send_reset_password_instructions
+      [ {notice: I18n.t('devise.passwords.send_instructions') }, :ok]
+    else
+      [{ errors: I18n.t('devise.failure.invalid_email') }, :unprocessable_entity]
+    end
   end
 
   def edit(params)
-    user = User.find_by!(params)
+    user = User.find_by(reset_password_token: params[:reset_password_token])
 
-    [{notice: I18n.t('devise.passwords.new_password')}, :ok]
+    if user
+      [{notice: I18n.t('devise.passwords.new_password')}, :ok]
+    else
+      wrong
+    end
   end
 
   def update(params)
-    if params.permit(:reset_password_token).blank?
-      return [{ errors: I18n.t('devise.passwords.wrong_token') }, :unprocessable_entity]
-    end
+    user = User.find_by(reset_password_token: params[:reset_password_token])
 
-    user = User.find_by!(params.permit(:reset_password_token))
+    return wrong unless user
 
-    if params.permit(:password).blank? || params.permit(:password_confirmation).blank?
+    if params[:password].blank? || params[:password_confirmation].blank?
       params[:password] = "mot_chuoi"
       params[:password_confirmation] = "chuoi_khac"
     end
 
     message = simple_update(user, params.permit(:password, :password_confirmation), options)
+
     if message[:notice]
       [{notice: I18n.t('devise.passwords.updated')}, :ok]
     else
@@ -33,9 +41,7 @@ class PasswordService < BaseService
   end
 
   def change(params)
-    unless current_user.valid_password? params[:old_password]
-      return [{ errors: I18n.t('devise.passwords.wrong_password') }, :unprocessable_entity]
-    end
+    return wrong('password') unless current_user.valid_password? params[:old_password]
 
     if params.permit(:password).blank? || params.permit(:password_confirmation).blank?
       params[:password] = "mot_chuoi"
@@ -49,5 +55,11 @@ class PasswordService < BaseService
     else
       [{ errors: message[:errors] }, :unprocessable_entity]
     end
+  end
+
+  private
+
+  def wrong(obj = 'token')
+    [{ errors: I18n.t("devise.passwords.wrong_#{obj}") }, :unprocessable_entity]
   end
 end
