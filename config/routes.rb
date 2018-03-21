@@ -14,5 +14,6 @@ Rails.application.routes.draw do
         post   :confirmation, to: 'confirmations#create'
       end
     end
+    match '*path', to: 'base_api#routing_error', via: :all
   end
 end

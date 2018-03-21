@@ -8,6 +8,8 @@ class Api::BaseApiController < ActionController::API
   private
 
   def service
+    return if controller_name == 'base_api'
+
     service ||= "#{controller_name.singularize.capitalize}Service".constantize
     @service ||= service.new(current_user, controller_name, action_name)
   end

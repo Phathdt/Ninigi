@@ -7,6 +7,10 @@ module ResponseWithErrors
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   end
 
+  def routing_error
+    render_error(I18n.t('routing.errors.messages.routing_error'), :unprocessable_entity)
+  end
+
   private
 
   def not_authenticated

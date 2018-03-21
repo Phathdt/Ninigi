@@ -8,6 +8,11 @@ vi:
           has_one: Không thể xóa do tồn tại đối tượng phụ thuộc %{record}
           has_many: Không thể xóa do tồn tại một số đối tượng phụ thuộc %{record}
 
+  routing:
+    errors:
+      messages:
+        routing_error: Routing Errror nè má ơi
+
   date:
     abbr_day_names:
     - CN
