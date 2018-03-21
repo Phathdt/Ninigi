@@ -93,7 +93,7 @@ Rails.application.configure do
 
   config.action_mailer.default_options = { from: ENV['SMTP_LOGIN'] }
 
-  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default charset: 'utf-8'
 
   config.action_mailer.raise_delivery_errors = true
 

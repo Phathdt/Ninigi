@@ -17,7 +17,7 @@ class SessionService < BaseService
   def destroy(record)
     data, message = custom_destroy record
     if message == :ok
-      [{notice: I18n.t('devise.sessions.signed_out')}, :ok]
+      [{ notice: I18n.t('devise.sessions.signed_out') }, :ok]
     else
       [data, :unprocessable_entity]
     end

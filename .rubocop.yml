@@ -379,26 +379,6 @@ Style/TrailingCommaInArguments:
     - no_comma
   Enabled: false
 
-Style/TrailingCommaInArrayLiteral:
-  Description: 'Checks for trailing comma in array literals.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas'
-  EnforcedStyleForMultiline: comma
-  SupportedStylesForMultiline:
-    - comma
-    - consistent_comma
-    - no_comma
-  Enabled: false
-
-Style/TrailingCommaInHashLiteral:
-  Description: 'Checks for trailing comma in hash literals.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas'
-  EnforcedStyleForMultiline: comma
-  SupportedStylesForMultiline:
-    - comma
-    - consistent_comma
-    - no_comma
-  Enabled: false
-
 Style/TrivialAccessors:
   Description: 'Prefer attr_* methods to trivial readers/writers.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#attr_family'
@@ -487,7 +467,7 @@ Lint/CircularArgumentReference:
   Description: "Don't refer to the keyword argument in the default value."
   Enabled: false
 
-Layout/ConditionPosition:
+Lint/ConditionPosition:
   Description: >-
                  Checks for condition placed in a confusing position relative to
                  the keyword.
@@ -681,13 +661,6 @@ Style/MixinUsage:
     - 'bin/setup'
     - 'bin/update'
 
-Style/ExpandPathArguments:
-  Exclude:
-    - 'spec/rails_helper.rb'
-    - 'bin/bundle'
-    - 'bin/setup'
-    - 'bin/update'
-
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -768,10 +741,6 @@ Rails/OutputSafety:
     - 'app/helpers/application_helper.rb'
     - 'app/datatables/shipping_units_datatable.rb'
     - 'app/helpers/projects_helper.rb'
-
-Style/RescueStandardError:
-  Exclude:
-    - 'features/step_definitions/steps.rb'
 
 Style/RedundantSelf:
   Exclude:

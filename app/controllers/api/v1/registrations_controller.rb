@@ -1,6 +1,5 @@
 module Api::V1
   class RegistrationsController < BaseApiController
-
     def create
       data, status = service.create(registration_params)
       render_json(data, status)

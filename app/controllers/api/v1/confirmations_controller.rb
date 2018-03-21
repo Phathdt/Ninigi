@@ -1,6 +1,5 @@
 module Api::V1
   class ConfirmationsController < BaseApiController
-
     def show
       data, status = service.show(params)
       render_json(data, status)
