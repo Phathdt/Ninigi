@@ -26,6 +26,22 @@ class PasswordService < BaseService
 
     return wrong unless user
 
+    change_password(user, params)
+  end
+
+  def change(params)
+    return wrong('password') unless current_user.valid_password?(params[:old_password])
+
+    change_password(current_user, params)
+  end
+
+  private
+
+  def wrong(obj = 'token')
+    [{ errors: I18n.t("devise.passwords.wrong_#{obj}") }, :unprocessable_entity]
+  end
+
+  def change_password(user, params)
     if params[:password].blank? || params[:password_confirmation].blank?
       params[:password] = "mot_chuoi"
       params[:password_confirmation] = "chuoi_khac"
@@ -38,28 +54,5 @@ class PasswordService < BaseService
     else
       [{ errors: message[:errors] }, :unprocessable_entity]
     end
-  end
-
-  def change(params)
-    return wrong('password') unless current_user.valid_password? params[:old_password]
-
-    if params.permit(:password).blank? || params.permit(:password_confirmation).blank?
-      params[:password] = "mot_chuoi"
-      params[:password_confirmation] = "chuoi_khac"
-    end
-
-    message = simple_update(current_user, params.permit(:password, :password_confirmation), options)
-
-    if message[:notice]
-      [{notice: I18n.t('devise.passwords.updated')}, :ok]
-    else
-      [{ errors: message[:errors] }, :unprocessable_entity]
-    end
-  end
-
-  private
-
-  def wrong(obj = 'token')
-    [{ errors: I18n.t("devise.passwords.wrong_#{obj}") }, :unprocessable_entity]
   end
 end
