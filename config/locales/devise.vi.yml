@@ -31,7 +31,7 @@ vi:
       no_token: Bạn chỉ có thể truy cập trang này từ email đặt lại mật khẩu. Nếu bạn truy cập từ email đặt lại mật khẩu, xin chắc chắn rằng bạn dùng đường dẫn đầy đủ trong email.
       send_instructions: Bạn sẽ nhận được email hướng dẫn thiết lập lại mật khẩu trong vài phút nữa.
       send_paranoid_instructions: Nếu email của bạn có trong hệ thống, bạn sẽ nhận được đường dẫn khôi phục mật khẩu trong vài phút nữa qua email.
-      updated: Đổi mật khẩu thành công! Bạn hiện đang đăng nhập.
+      updated: Mật khẩu đã được thành công! Bạn hãy đăng nhập lại.
       updated_not_active: Mật khẩu đã được đổi thành công.
       new_password: Bạn hãy nhập mật khẩu mới.
       wrong_password: Mật khẩu cũ sai, xin kiểm tra lại

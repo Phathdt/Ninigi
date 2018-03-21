@@ -49,6 +49,7 @@ class PasswordService < BaseService
     message = simple_update(user, params.permit(:password, :password_confirmation), options)
 
     if message[:notice]
+      user.sessions.delete_all
       [{ notice: I18n.t('devise.passwords.updated') }, :ok]
     else
       [{ errors: message[:errors] }, :unprocessable_entity]
