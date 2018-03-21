@@ -3,14 +3,12 @@ class SessionService < BaseService
     user = User.find_by(email: params[:email].downcase)
 
     if user&.valid_password?(params[:password])
-      if user.confirmed?
-        session = user.sessions.create
-        [session, :ok]
-      else
-        [{ message: I18n.t('devise.registrations.signed_up_but_inactive') }, 406]
-      end
+      return [{ message: I18n.t('devise.registrations.signed_up_but_inactive') }, :unprocessable_entity] unless user.confirmed?
+
+      session = user.sessions.create
+      [session, :ok]
     else
-      [{ message: I18n.t('devise.failure.not_found_in_database') }, 406]
+      [{ message: I18n.t('devise.failure.not_found_in_database') }, :unprocessable_entity]
     end
   end
 
