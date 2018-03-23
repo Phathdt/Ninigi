@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  rolify
   extend Devise::Models
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,

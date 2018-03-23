@@ -14,8 +14,11 @@ gem 'i18n'
 gem 'i18n-js', '>= 3.0.1'
 gem 'jbuilder', '~> 2.7.0'
 
-## Authorization
+## Authentication
 gem 'devise', '~> 4.4.1'
+
+## Authorization
+gem 'rolify'
 
 ## utilities
 gem 'delayed_job_active_record'
