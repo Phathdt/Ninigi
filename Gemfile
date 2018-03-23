@@ -18,8 +18,8 @@ gem 'jbuilder', '~> 2.7.0'
 gem 'devise', '~> 4.4.1'
 
 ## Authorization
-gem 'rolify'
 gem 'pundit'
+gem 'rolify'
 
 ## utilities
 gem 'delayed_job_active_record'
