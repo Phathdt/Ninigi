@@ -6,7 +6,7 @@ class Restaurant < ApplicationRecord
   after_validation :geocode, if: :address_changed?
   after_validation :update_name_unicode, if: -> { name_changed? || name_unicode.blank? }
 
-  belongs_to :user
+  belongs_to :owner, class_name: 'User', foreign_key: 'user_id'
 
   validates :desc, length: { minimum: 0, maximum: DESC_MAX_LENGTH }
   validates :name, :address, presence: true, length: { minimum: 1, maximum: 254 }

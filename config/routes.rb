@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         get    :confirmation, to: 'confirmations#show'
         post   :confirmation, to: 'confirmations#create'
       end
+      resources :restaurants
     end
     match '*path', to: 'base_api#routing_error', via: :all
   end
