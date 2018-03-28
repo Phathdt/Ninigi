@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :confirmable
 
   has_many :sessions, dependent: :destroy
+  has_many :restaurants, dependent: :destroy
 end
