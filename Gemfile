@@ -8,11 +8,9 @@ gem 'rails', '~> 5.1.5'
 ## Healper gems
 gem 'active_model_serializers', '~> 0.10.7'
 gem 'devise-i18n'
-gem 'fast_jsonapi', '~> 1.0.17'
+gem 'fast_jsonapi', '~> 1.1.1'
 gem 'figaro', '~> 1.1.1'
 gem 'i18n'
-gem 'i18n-js', '>= 3.0.1'
-gem 'jbuilder', '~> 2.7.0'
 
 ## Authentication
 gem 'devise', '~> 4.4.1'
