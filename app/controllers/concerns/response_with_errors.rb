@@ -14,7 +14,7 @@ module ResponseWithErrors
   private
 
   def not_authenticated
-    render_error(I18n.t('devise.failure.invalid'), :unauthorized)
+    render_error(I18n.t('devise.failure.unauthenticated'), :unauthorized)
   end
 
   def token_not_match
