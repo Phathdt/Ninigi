@@ -56,6 +56,12 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: ENV['DOMAIN_NAME'], port: ENV['PORT'] }
 
+  config.action_mailer.default_options = { from: ENV['SMTP_LOGIN'] }
+
+  config.action_mailer.default charset: 'utf-8'
+
+  config.action_mailer.raise_delivery_errors = true
+
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.perform_deliveries = true
