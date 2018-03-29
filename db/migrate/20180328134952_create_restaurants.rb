@@ -5,7 +5,7 @@ class CreateRestaurants < ActiveRecord::Migration[5.1]
       t.string     :address
       t.string     :phone
       t.text       :desc
-      t.integer    :state, default: 0
+      t.integer    :state, default: 0, null: false
       t.float      :latitude
       t.float      :longitude
       t.references :user, type: :uuid, foreign_key: true
