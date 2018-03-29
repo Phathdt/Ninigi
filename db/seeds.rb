@@ -5,16 +5,9 @@ User.create(
   password_confirmation: '123123123'
 )
 
-admin.add_role(:admin)
-
-User.create(
-  name: 'Pool',
-  email: 'droidmaxxx@gmail.com',
-  password: '123123123',
-  password_confirmation: '123123123'
-)
-
 admin = User.first
+
+admin.add_role(:admin)
 
 admin.restaurants.create(
   name: 'Food House',
