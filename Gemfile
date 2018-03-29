@@ -25,7 +25,8 @@ gem 'geocoder', '~> 1.4.6'
 gem 'html2slim'
 gem 'rack-cors', '~> 1.0.2'
 gem 'slim-rails'
-gem 'state_machine'
+gem 'state_machine', '~> 1.2.0'
+gem "paranoia", '~> 2.4.0'
 
 group :development do
   gem 'byebug'
