@@ -1,5 +1,18 @@
 vi:
   activerecord:
+    models:
+      restaurant: Nhà hàng
+      user: Người dùng
+    attributes:
+      user:
+        name: Tên người dùng
+      restaurant:
+        name: Tên nhà hàng
+        address: Địa chỉ nhà hàng
+        desc: Miêu tả
+        phone: Số điện thoại
+    exceptions:
+      not_found: "Không tìm thấy %{klass}"
     errors:
       messages:
         record_not_found: 'Không tìm thấy %{resourse}'

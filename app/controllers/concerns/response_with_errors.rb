@@ -23,8 +23,8 @@ module ResponseWithErrors
   end
 
   def record_not_found(exception)
-    class_object = exception.message.match(/Couldn't find ([\w]+)/)[1]
-    render_error(I18n.t('activerecord.errors.messages.record_not_found', resourse: class_object), :not_found)
+    exception.message =~ /^Couldn't find (\w+) with 'id'/
+    render_error(I18n.t('activerecord.exceptions.not_found', klass: I18n.t("activerecord.models.#{$1.downcase}")), :not_found)
   end
 
   def user_not_authorized
