@@ -7,6 +7,7 @@ class RestaurantService < BaseService
   def create(params)
     restaurant = current_user.restaurants.new(params)
     message = simple_create(restaurant, options)
+    current_user.add_role(:owner) if message[:notice]
     render_message(message)
   end
 
@@ -16,6 +17,9 @@ class RestaurantService < BaseService
   end
 
   def destroy(restaurant)
+    owner = restaurant.owner
     message = custom_destroy restaurant
+    owner.remove_role(:owner) if message.last == :ok && owner.restaurants.blank?
+    message
   end
 end
