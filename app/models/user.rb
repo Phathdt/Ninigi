@@ -7,4 +7,6 @@ class User < ApplicationRecord
 
   has_many :sessions, dependent: :destroy
   has_many :restaurants, dependent: :destroy
+
+  validates :name, length: { minimum: 6, maximum: 254 }
 end
