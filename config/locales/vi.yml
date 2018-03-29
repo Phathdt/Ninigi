@@ -213,7 +213,14 @@ vi:
       short: "%d %b %H:%M"
     pm: chiều
 
+  pundit:
+    user_not_authorized: Bạn không đủ quyền để thực hiện việc này
+
   restaurants:
     create:
-      failure: "Tạo nhà hàng thất bại"
-      success: "Tạo nhà hàng thành công"
+      failure: Tạo nhà hàng thất bại
+      success: Tạo nhà hàng thành công
+    update:
+      success: Sửa nhà hàng thành công
+    destroy:
+      success: Xoá nhà hàng thành công
