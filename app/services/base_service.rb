@@ -9,4 +9,12 @@ class BaseService
     @current_user = current_user
     @options = { controller: controller, action: action }
   end
+
+  private
+
+  def render_message(message)
+    return [{ notice: message[:notice] }, :ok] if message[:notice]
+
+    [{ errors: message[:errors] }, :unprocessable_entity]
+  end
 end

@@ -212,3 +212,8 @@ vi:
       long: "%d %B, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: chiều
+
+  restaurants:
+    create:
+      failure: "Tạo nhà hàng thất bại"
+      success: "Tạo nhà hàng thành công"
