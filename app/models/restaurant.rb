@@ -1,6 +1,7 @@
 class Restaurant < ApplicationRecord
   include NameBehavior
 
+  acts_as_paranoid
   geocoded_by :address
 
   enum state: %i[pending approved suspended published]

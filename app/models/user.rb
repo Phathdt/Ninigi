@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   include NameBehavior
 
+  acts_as_paranoid
   rolify
   extend Devise::Models
   devise :database_authenticatable, :registerable,
