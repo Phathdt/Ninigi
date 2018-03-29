@@ -2,6 +2,7 @@ class Api::BaseApiController < ActionController::API
   include AuthenticaSession
   include ResponseWithErrors
   include ResponseWithJson
+  include Pundit
 
   before_action :service, :set_locale
 

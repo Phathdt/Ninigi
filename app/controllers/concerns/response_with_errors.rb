@@ -5,6 +5,7 @@ module ResponseWithErrors
     rescue_from Error::NotAuthenticated, with: :not_authenticated
     rescue_from Error::TokenNotMatch, with: :token_not_match
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   end
 
   def routing_error
@@ -24,6 +25,10 @@ module ResponseWithErrors
   def record_not_found(exception)
     class_object = exception.message.match(/Couldn't find ([\w]+)/)[1]
     render_error(I18n.t('activerecord.errors.messages.record_not_found', resourse: class_object), :not_found)
+  end
+
+  def user_not_authorized
+    render_error(I18n.t('pundit.user_not_authorized'), :unauthorized)
   end
 
   def render_error(message, status)
