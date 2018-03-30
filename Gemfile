@@ -8,7 +8,7 @@ gem 'rails', '~> 5.1.5'
 ## Healper gems
 gem 'active_model_serializers', '~> 0.10.7'
 gem 'devise-i18n'
-gem 'fast_jsonapi', '~> 1.1.1'
+gem 'fast_jsonapi', git: 'https://github.com/Phathdt/fast_jsonapi', ref: 'dee33b0'
 gem 'figaro', '~> 1.1.1'
 gem 'i18n'
 
@@ -23,10 +23,10 @@ gem 'rolify'
 gem 'delayed_job_active_record'
 gem 'geocoder', '~> 1.4.6'
 gem 'html2slim'
+gem 'paranoia', '~> 2.4.0'
 gem 'rack-cors', '~> 1.0.2'
 gem 'slim-rails'
 gem 'state_machine', '~> 1.2.0'
-gem "paranoia", '~> 2.4.0'
 
 group :development do
   gem 'byebug'

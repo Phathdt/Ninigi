@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/Phathdt/fast_jsonapi
+  revision: dee33b0954c6cfdbd2e5c00994c9d8dfaa42467a
+  ref: dee33b0
+  specs:
+    fast_jsonapi (1.1.1)
+      activesupport (>= 4.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -73,8 +81,6 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
-    fast_jsonapi (1.1.1)
-      activesupport (>= 4.2)
     ffi (1.9.23)
     figaro (1.1.1)
       thor (~> 0.14)
@@ -217,7 +223,7 @@ DEPENDENCIES
   devise (~> 4.4.1)
   devise-i18n
   factory_bot_rails
-  fast_jsonapi (~> 1.1.1)
+  fast_jsonapi!
   figaro (~> 1.1.1)
   foreman (~> 0.82.0)
   geocoder (~> 1.4.6)
