@@ -8,15 +8,11 @@ module AuthenticaSession
   protected
 
   def authenticate_request!
-    unless token_presence?
-      raise Error::NotAuthenticated
-    end
+    raise Error::NotAuthenticated unless token_presence?
 
     @session = Session.find_by(token: token, active: true)
 
-    unless @session
-      raise Error::TokenNotMatch
-    end
+    raise Error::TokenNotMatch unless @session
 
     @current_user = session.user
   end
