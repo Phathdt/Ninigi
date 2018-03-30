@@ -22,7 +22,7 @@ gem 'rolify'
 ## utilities
 gem 'delayed_job_active_record'
 gem 'geocoder', '~> 1.4.6'
-gem 'html2slim'
+gem 'kaminari', '~> 1.1.1'
 gem 'paranoia', '~> 2.4.0'
 gem 'rack-cors', '~> 1.0.2'
 gem 'slim-rails'
