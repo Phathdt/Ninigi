@@ -3,7 +3,7 @@ class RestaurantSerializer < BaseSerializer
   set_type :restaurant
   set_key_transform :camel_lower
 
-  attribute :id_dsada do |object|
-    'Part 2'
+  attribute :isAdmin do |object|
+    current_user.has_role?(:admin) ? "tao la admin tao co quyen" : {"em la thuong dan": 1}
   end
 end
