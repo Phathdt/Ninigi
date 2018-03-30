@@ -14,6 +14,9 @@ Rails.application.routes.draw do
         post   :confirmation, to: 'confirmations#create'
       end
       resources :restaurants
+      namespace :admin do
+        resources :restaurants
+      end
     end
     match '*path', to: 'base_api#routing_error', via: :all
   end
