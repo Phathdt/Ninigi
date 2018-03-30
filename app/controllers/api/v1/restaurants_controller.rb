@@ -4,7 +4,7 @@ module Api::V1
     before_action :find_restaurant, only: %i[show update destroy]
 
     def index
-      data, status = service.index
+      data, status = service.index(params[:page])
       render_json(data, status)
     end
 

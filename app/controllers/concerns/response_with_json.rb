@@ -12,7 +12,7 @@ module ResponseWithJson
   end
 
   def render_data(data, status)
-    class_name = data.class.name == 'ActiveRecord::Relation' ? data.first.class.name : data.class.name
+    class_name = data.class.name == 'ActiveRecord::Relation' ? data.sti_name : data.class.name
 
     if MODEL_SERIALIZER.include?(class_name)
       render json: "#{class_name}Serializer".constantize.new(data, current_user: current_user || User.new).serialized_json

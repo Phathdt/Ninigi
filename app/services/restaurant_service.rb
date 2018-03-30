@@ -1,6 +1,6 @@
 class RestaurantService < BaseService
-  def index
-    restaurants = Restaurant.all
+  def index(page_number)
+    restaurants = Restaurant.page(page_number || 1)
     [restaurants, :ok]
   end
 
