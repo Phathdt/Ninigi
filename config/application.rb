@@ -28,6 +28,8 @@ module Ninigi
 
     config.autoload_paths += %W(#{config.root}/config/routes)
 
+    config.active_job.queue_adapter     = :delayed_job
+
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'

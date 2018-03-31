@@ -39,11 +39,11 @@ class Restaurant < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   def send_email_approve
-    RestaurantMailer.send_email('approved', self, owner, I18n.locale.to_s).deliver_later
+    SendEmailRestaurantJob.perform_later('approved', self, owner, I18n.locale.to_s)
   end
 
   def send_email_reject
-    RestaurantMailer.send_email('suspended', self, owner, I18n.locale.to_s).deliver_later
+    SendEmailRestaurantJob.perform_later('suspended', self, owner, I18n.locale.to_s)
   end
 
   def remove_comment
