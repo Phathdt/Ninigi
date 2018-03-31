@@ -6,6 +6,7 @@ module ResponseWithErrors
     rescue_from Error::TokenNotMatch, with: :token_not_match
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+    rescue_from ActionController::ParameterMissing, with: :params_missing
   end
 
   def routing_error
@@ -29,6 +30,10 @@ module ResponseWithErrors
 
   def user_not_authorized
     render_error(I18n.t('pundit.user_not_authorized'), :unauthorized)
+  end
+
+  def params_missing
+    render_error(I18n.t('actioncontroller.errors.messages.missing_params'), :internal_server_error)
   end
 
   def render_error(message, status)

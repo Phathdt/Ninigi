@@ -27,6 +27,11 @@ vi:
       messages:
         routing_error: Routing Errror nè má ơi
 
+  actioncontroller:
+    errors:
+      messages:
+        missing_params: Thiếu params rồi kìa
+
   date:
     abbr_day_names:
     - CN
@@ -238,3 +243,7 @@ vi:
       success: Sửa nhà hàng thành công
     destroy:
       success: Xoá nhà hàng thành công
+    state:
+      approve: Nhà hàng đã được chấp nhận
+      reject: Nhà hàng đã được từ chối
+      error: Nhà hàng không thể đổi trạng thái hiện giờ, xin kiểm tra lại
