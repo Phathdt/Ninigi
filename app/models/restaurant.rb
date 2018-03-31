@@ -11,15 +11,13 @@ class Restaurant < ApplicationRecord
     state :pending, initial: true
     state :approved, :suspended, :published
 
-    after_all_transitions :log_status_change
-
     event :approve do
       transitions from: :pending, to: :approved, after: :send_email_approve
       transitions from: :published, to: :approved
     end
 
-    event :reject do
-      transitions from: [:pending, :approved, :published], to: :suspended, after: :send_email_reject
+    event :reject, after: :send_email_reject do
+      transitions from: [:pending, :approved, :published], to: :suspended
     end
 
     event :re_pending do
@@ -31,8 +29,6 @@ class Restaurant < ApplicationRecord
     end
   end
 
-  after_validation :geocode, if: :address_changed?
-
   belongs_to :owner, class_name: 'User', foreign_key: 'user_id'
 
   validates :name, :address, presence: true, length: { minimum: 1, maximum: 254 }
@@ -40,9 +36,7 @@ class Restaurant < ApplicationRecord
   validates :phone, length: { minimum: 10, maximum: 15 }
   validates :comment, presence: true, if: Proc.new { |restaurant| restaurant.suspended? }
 
-  def log_status_change
-    puts "changing from #{aasm.from_state} to #{aasm.to_state} (event: #{aasm.current_event})"
-  end
+  after_validation :geocode, if: :address_changed?
 
   def send_email_approve
     p 'gui mail approve cho user'
