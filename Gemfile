@@ -20,13 +20,13 @@ gem 'pundit'
 gem 'rolify'
 
 ## utilities
+gem 'aasm'
 gem 'delayed_job_active_record'
 gem 'geocoder', '~> 1.4.6'
 gem 'kaminari', '~> 1.1.1'
 gem 'paranoia', '~> 2.4.0'
 gem 'rack-cors', '~> 1.0.2'
 gem 'slim-rails'
-gem 'aasm'
 
 group :development do
   gem 'byebug'
