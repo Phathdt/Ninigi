@@ -13,4 +13,5 @@ class Restaurant < ApplicationRecord
   validates :name, :address, presence: true, length: { minimum: 1, maximum: 254 }
   validates :desc, length: { minimum: 0, maximum: DESC_MAX_LENGTH }
   validates :phone, length: { minimum: 10, maximum: 15 }
+  validates :comment, presence: true, if: Proc.new { |restaurant| restaurant.suspended? }
 end

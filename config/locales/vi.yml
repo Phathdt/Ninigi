@@ -11,6 +11,7 @@ vi:
         address: Địa chỉ nhà hàng
         desc: Miêu tả
         phone: Số điện thoại
+        comment: Lí do
     exceptions:
       not_found: "Không tìm thấy %{klass}"
     errors:
