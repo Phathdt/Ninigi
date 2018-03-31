@@ -1,7 +1,7 @@
 module Api::V1
   class RestaurantsController < BaseApiController
-    prepend_before_action :authenticate_request!, only: %i[create update destroy]
-    before_action :find_restaurant, only: %i[show update destroy]
+    prepend_before_action :authenticate_request!, only: %i[create update destroy repending published]
+    before_action :find_restaurant, only: %i[show update destroy repending published]
 
     def index
       data, status = service.index(params[:page])
@@ -26,6 +26,18 @@ module Api::V1
     def destroy
       authorize @restaurant
       data, status = service.destroy(@restaurant)
+      render_json(data, status)
+    end
+
+    def repending
+      authorize @restaurant
+      data, status = service.repending(@restaurant)
+      render_json(data, status)
+    end
+
+    def published
+      authorize @restaurant
+      data, status = service.published(@restaurant)
       render_json(data, status)
     end
 

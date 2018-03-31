@@ -3,7 +3,12 @@ module UserRoutes
     router.instance_exec do
       namespace :api, defaults: { format: :json } do
         namespace :v1 do
-          resources :restaurants
+          resources :restaurants do
+            member do
+              get :repending
+              get :published
+            end
+          end
         end
       end
     end
