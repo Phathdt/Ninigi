@@ -17,10 +17,10 @@ class Restaurant < ApplicationRecord
     end
 
     event :reject, after: :send_email_reject do
-      transitions from: [:pending, :approved, :published], to: :suspended
+      transitions from: %i[pending approved published], to: :suspended
     end
 
-    event :re_pending do
+    event :repending, after: :remove_comment do
       transitions from: :suspended, to: :pending
     end
 

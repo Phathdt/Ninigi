@@ -4,7 +4,12 @@ module AdminRoutes
       namespace :api, defaults: { format: :json } do
         namespace :v1 do
           namespace :admin do
-            resources :restaurants
+            resources :restaurants, only: %i[index show] do
+              member do
+                post :approve
+                post :reject
+              end
+            end
           end
         end
       end
