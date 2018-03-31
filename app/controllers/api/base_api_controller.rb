@@ -9,7 +9,7 @@ class Api::BaseApiController < ActionController::API
   private
 
   def service
-    return if controller_path.include?('admin')
+    return if controller_name == 'base_api' || controller_path.include?('admin')
 
     service ||= "#{controller_name.singularize.capitalize}Service".constantize
     @service ||= service.new(current_user, controller_name, action_name)
