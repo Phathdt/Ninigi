@@ -26,7 +26,11 @@ module Ninigi
 
     config.api_only = true
 
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+
     config.autoload_paths += %W(#{config.root}/config/routes)
+
+    config.time_zone = 'Hanoi'
 
     config.active_job.queue_adapter     = :delayed_job
 
