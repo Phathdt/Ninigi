@@ -26,7 +26,7 @@ gem 'kaminari', '~> 1.1.1'
 gem 'paranoia', '~> 2.4.0'
 gem 'rack-cors', '~> 1.0.2'
 gem 'slim-rails'
-gem 'state_machine', '~> 1.2.0'
+gem 'aasm'
 
 group :development do
   gem 'byebug'
