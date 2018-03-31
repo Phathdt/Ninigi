@@ -1,0 +1,28 @@
+vi:
+  restaurant_mailer:
+    notify_changed_status:
+      subject:
+        approved: "Nhà hàng %{name} đã được chấp nhận"
+        suspended: "Nhà hàng %{name} đã bị từ chối"
+      content:
+        approved: |
+          Xin chào %{name} !
+
+          Cảm ơn bạn đã chia sẻ địa điểm nhà hàng với cộng đồng Ninigi.
+          Nhà hàng %{restaurant} của bạn đã được đã được phê duyệt vào lúc %{time}.
+
+          Để biết thêm thông tin chi tiết, vui lòng click vào đây %{link} .
+
+          Trân trọng,
+          Ninigi Team
+        suspended: |
+          Xin chào %{name} !
+
+          Nhà hàng %{restaurant} của bạn đã bị từ chối vào lúc %{time}.
+
+          Với lí do:
+          %{comment}
+          Nếu có bất kỳ thắc mắc gì, vui lòng liên hệ %{contact_email}.
+
+          Trân trọng,
+          Ninigi Team

@@ -39,11 +39,11 @@ class Restaurant < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   def send_email_approve
-    p 'gui mail approve cho user'
+    RestaurantMailer.send_email('approved', self, owner, I18n.locale.to_s).deliver_later
   end
 
   def send_email_reject
-    p 'gui mail suspend cho user'
+    RestaurantMailer.send_email('suspended', self, owner, I18n.locale.to_s).deliver_later
   end
 
   def remove_comment
