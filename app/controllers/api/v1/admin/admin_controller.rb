@@ -1,7 +1,7 @@
 module Api::V1
   class Admin::AdminController < BaseApiController
     before_action :authorize_admin!
-    before_action :service_admin
+    before_action :service
 
     private
 
@@ -11,7 +11,7 @@ module Api::V1
       raise Pundit::NotAuthorizedError unless current_user.has_role?(:admin)
     end
 
-    def service_admin
+    def service
       service ||= "Admin::#{controller_name.singularize.capitalize}Service".constantize
       @service ||= service.new(current_user, controller_name, action_name)
     end
