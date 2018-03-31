@@ -3,14 +3,6 @@ AllCops:
   Exclude:
     - 'db/schema.rb'
     - 'config/application.rb'
-    # Uncomment if you want to add more folder/files will be skiped by rubocop
-    # - 'config/**/*'
-    # - 'Gemfile'
-    # - 'spec/factories/**/*'
-    # - 'spec/rails_helper.rb'
-    # - 'spec/spec_helper.rb'
-    # - 'vendor/**/*'
-
 
 Naming/AccessorMethodName:
   Description: Check the naming of accessor methods for get_/set_.
@@ -110,15 +102,10 @@ Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
     - 'config/routes.rb'
-    - 'config/initializers/simple_form_bootstrap.rb'
     - 'config/environments/*.rb'
     - "**/*_spec.rb"
     - "lib/tasks/**/*.rake"
     - 'config/initializers/devise.rb'
-    - 'config/initializers/simple_form.rb'
-    - 'app/datatables/**/*'
-    - 'features/step_definitions/*.rb'
-    - 'app/models/product.rb'
 
 Metrics/CyclomaticComplexity:
   Description: >-
@@ -681,24 +668,16 @@ Metrics/PerceivedComplexity:
 Metrics/MethodLength:
   Max: 30
   Exclude:
-    - 'app/datatables/**/*'
 
 # Custom for Senken project
 Naming/AccessorMethodName:
   Exclude:
-    - 'app/controllers/admin/required_documents_texts_controller.rb'
-    - 'app/controllers/admin/terms_and_conditions_texts_controller.rb'
 
 Style/GuardClause:
   Exclude:
-    - 'app/controllers/pages_controller.rb'
 
 Lint/UselessAssignment:
   Exclude:
-    - 'app/datatables/products_datatable.rb'
-    - 'app/datatables/product_quotations_datatable.rb'
-    - 'app/services/action/product_service.rb'
-    - 'app/helpers/header_helper.rb'
 
 Lint/AssignmentInCondition:
   Exclude:
@@ -717,38 +696,16 @@ Rails/TimeZone:
 
 Rails/SkipsModelValidations:
   Exclude:
-    - 'features/step_definitions/shipping_unit_steps.rb'
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/admin/contacts_controller.rb'
-    - 'app/services/currency_service.rb'
-    - 'app/services/sidekiq_error_service.rb'
-    - 'app/models/category_characteristics_group.rb'
-    - 'app/models/supplier_order_line.rb'
-    - 'app/models/product.rb'
-    - 'app/jobs/process_images_job.rb'
-    - 'db/data/20171010023908_initialize_postion_from_category_characteristics.rb'
-    - 'db/data/20171012041010_add_line_number_to_existing_supplier_order_lines.rb'
+    - 'app/models/restaurant.rb'
 
 Rails/OutputSafety:
   Exclude:
-    - 'app/datatables/concerns/supplier_order_workflow_actions.rb'
-    - 'app/datatables/concerns/workflow_actions.rb'
-    - 'app/datatables/concerns/client_order_workflow_actions.rb'
-    - 'app/datatables/concerns/submission_workflow_actions.rb'
-    - 'app/datatables/concerns/datatable_actions.rb'
-    - 'app/helpers/header_helper.rb'
-    - 'app/helpers/characteristic_products_helper.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/datatables/shipping_units_datatable.rb'
-    - 'app/helpers/projects_helper.rb'
 
 Style/RedundantSelf:
   Exclude:
-    - 'config/application.rb'
 
 Lint/AmbiguousBlockAssociation:
   Exclude:
-    - 'app/models/category.rb'
 
 Lint/UnusedMethodArgument:
   Enabled: false
@@ -768,8 +725,6 @@ Naming/PredicateName:
 
 Rails/UnknownEnv:
   Exclude:
-    - 'config/initializers/mail_hook.rb'
 
 Style/FormatStringToken:
   Exclude:
-    - 'app/models/contact.rb'
