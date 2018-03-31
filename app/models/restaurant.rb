@@ -5,27 +5,27 @@ class Restaurant < ApplicationRecord
   acts_as_paranoid
   geocoded_by :address
 
-  enum state: %i[pending approved suspended published]
+  enum state: %i[pending approved suspended publiced]
 
   aasm column: 'state', enum: true do
     state :pending, initial: true
-    state :approved, :suspended, :published
+    state :approved, :suspended, :publiced
 
     event :approve do
       transitions from: :pending, to: :approved, after: :send_email_approve
-      transitions from: :published, to: :approved
+      transitions from: :publiced, to: :approved
     end
 
     event :reject, after: :send_email_reject do
-      transitions from: %i[pending approved published], to: :suspended
+      transitions from: %i[pending approved publiced], to: :suspended
     end
 
     event :repending, after: :remove_comment do
       transitions from: :suspended, to: :pending
     end
 
-    event :public do
-      transitions from: :approved, to: :published
+    event :published do
+      transitions from: :approved, to: :publiced
     end
   end
 
