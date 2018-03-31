@@ -1,11 +1,17 @@
 class RestaurantPolicy < ApplicationPolicy
   def update?
-    user.has_any_role?(:admin) ||
-      record.owner == user
+    record.owner == user
   end
 
   def destroy?
-    user.has_any_role?(:admin) ||
-      record.owner == user
+    update?
+  end
+
+  def repending?
+    update?
+  end
+
+  def published?
+    update?
   end
 end
