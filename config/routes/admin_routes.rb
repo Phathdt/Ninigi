@@ -6,7 +6,7 @@ module AdminRoutes
           namespace :admin do
             resources :restaurants, only: %i[index show] do
               member do
-                post :approve
+                get :approve
                 post :reject
               end
             end
