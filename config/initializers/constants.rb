@@ -7,3 +7,11 @@ MODEL_SERIALIZER = %w[User Restaurant].freeze
 DESC_MAX_LENGTH = 3000
 
 ROLES = %w[admin owner manager].freeze
+
+KAMINAGI_PER_PAGE = 20
+
+MAX_FIZESIZE = 10.megabytes.freeze
+
+WHITELIST_EXTS = %w(jpg jpeg png bmp).freeze
+
+CONTENT_TYPE_PATTERN = /image\/(jpe?g|png|bmp)$/.freeze
