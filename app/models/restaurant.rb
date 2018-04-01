@@ -59,6 +59,7 @@ class Restaurant < ApplicationRecord
   end
 
   def at_least_one_cover
-    errors.add(:base, I18n.t('activerecord.errors.models.restaurant.attributes.album_images.at_least_one_cover')) unless album_images.map(&:is_cover).uniq.include? true
+    arr_cover = album_images.map(&:is_cover)
+    errors.add(:base, I18n.t('activerecord.errors.models.restaurant.attributes.album_images.at_least_one_cover')) if arr_cover.count(true) > 1 || arr_cover.exclude?(true)
   end
 end
