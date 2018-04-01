@@ -19,6 +19,11 @@ vi:
     exceptions:
       not_found: "Không tìm thấy %{klass}"
     errors:
+      models:
+        restaurant:
+          attributes:
+            album_images:
+              blank: Phải có ít nhất 1 hình ảnh nhà hàng
       messages:
         record_not_found: 'Không tìm thấy %{resourse}'
         record_invalid: 'Có các lỗi sau: %{errors}'

@@ -39,6 +39,7 @@ class Restaurant < ApplicationRecord
   validates :desc, length: { minimum: 0, maximum: DESC_MAX_LENGTH }
   validates :phone, length: { minimum: 10, maximum: 15 }
   validates :comment, presence: true, if: Proc.new { |restaurant| restaurant.suspended? }
+  validates :album_images, presence: true
 
   after_validation :geocode, if: :address_changed?
 
