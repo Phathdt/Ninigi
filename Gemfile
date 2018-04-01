@@ -28,6 +28,11 @@ gem 'paranoia', '~> 2.4.0'
 gem 'rack-cors', '~> 1.0.2'
 gem 'slim-rails'
 
+## images and assset
+gem 'aws-sdk'
+gem 'mini_magick'
+gem 'paperclip'
+
 group :development do
   gem 'byebug'
   gem 'foreman', '~> 0.82.0'
