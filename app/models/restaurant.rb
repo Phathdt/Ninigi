@@ -31,6 +31,10 @@ class Restaurant < ApplicationRecord
 
   belongs_to :owner, class_name: 'User', foreign_key: 'user_id'
 
+  has_many :album_images, dependent: :destroy
+
+  accepts_nested_attributes_for :album_images, allow_destroy: true, reject_if: proc { |attributes| attributes['temp_url'].blank? }
+
   validates :name, :address, presence: true, length: { minimum: 1, maximum: 254 }
   validates :desc, length: { minimum: 0, maximum: DESC_MAX_LENGTH }
   validates :phone, length: { minimum: 10, maximum: 15 }

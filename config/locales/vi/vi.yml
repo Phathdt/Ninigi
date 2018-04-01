@@ -3,6 +3,7 @@ vi:
     models:
       restaurant: Nhà hàng
       user: Người dùng
+      album_image: Hình ảnh nhà hàng
     attributes:
       user:
         name: Tên người dùng
@@ -12,6 +13,9 @@ vi:
         desc: Miêu tả
         phone: Số điện thoại
         comment: Lí do
+      album_image:
+        caption: Tiêu đề
+        temp_url: link tạm
     exceptions:
       not_found: "Không tìm thấy %{klass}"
     errors:

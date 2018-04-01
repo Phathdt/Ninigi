@@ -10,12 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180331045635) do
+ActiveRecord::Schema.define(version: 20180401173702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "pgcrypto"
   enable_extension "uuid-ossp"
+
+  create_table "album_images", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "caption"
+    t.boolean "is_cover", default: false
+    t.string "temp_url"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.uuid "restaurant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_album_images_on_deleted_at"
+    t.index ["restaurant_id"], name: "index_album_images_on_restaurant_id"
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -108,6 +124,7 @@ ActiveRecord::Schema.define(version: 20180331045635) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "album_images", "restaurants"
   add_foreign_key "restaurants", "users"
   add_foreign_key "sessions", "users"
 end
