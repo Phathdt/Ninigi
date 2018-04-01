@@ -14,7 +14,7 @@ class AlbumImage < ApplicationRecord
   validates :caption, presence: true, length: { minimum: 1, maximum: 254 }
   validates :temp_url, presence: true, unless: Proc.new { |album_image| album_image.photo.exists? }
 
-  # after_create { ProcessImagesJob.perform_later(self) }
+  after_create { ProcessImagesJob.perform_later(self) }
 
   def url(version = :original)
     temp_url || photo.url(version)
