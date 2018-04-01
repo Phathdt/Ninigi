@@ -48,7 +48,12 @@ module Api::V1
     end
 
     def restaurant_params
-      params.require(:restaurants).permit(:name, :address, :phone, :desc)
+      params.require(:restaurants).permit(:name, :address, :phone, :desc,
+        album_images_attrs)
+    end
+
+    def album_images_attrs
+      { album_images_attributes: %i[id caption is_cover temp_url _destroy] }
     end
   end
 end
