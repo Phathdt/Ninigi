@@ -16,6 +16,10 @@ class AlbumImage < ApplicationRecord
 
   after_create { ProcessImagesJob.perform_later(self) }
 
+  def self.cover
+    find_by(is_cover: true)
+  end
+
   def url(version = :original)
     temp_url || photo.url(version)
   end

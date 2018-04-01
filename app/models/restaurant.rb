@@ -44,6 +44,10 @@ class Restaurant < ApplicationRecord
 
   after_validation :geocode, if: :address_changed?
 
+  def cover(version = :original)
+    album_images.cover.url(version)
+  end
+
   private
 
   def send_email_approve
