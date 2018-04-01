@@ -2,7 +2,7 @@ class RestaurantMailer < ApplicationMailer
   def send_email(state, restaurant, receiver, locale)
     subject =
       email_content_from(:subject,
-                         state: state, name: restaurant.name)
+                         state: state, name: receiver.name)
 
     @content =
       email_content_from(:content,
