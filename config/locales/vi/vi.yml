@@ -24,6 +24,7 @@ vi:
           attributes:
             album_images:
               blank: Phải có ít nhất 1 hình ảnh nhà hàng
+              at_least_one_cover: Phải có ít nhất một cover
       messages:
         record_not_found: 'Không tìm thấy %{resourse}'
         record_invalid: 'Có các lỗi sau: %{errors}'

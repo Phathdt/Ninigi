@@ -40,8 +40,11 @@ class Restaurant < ApplicationRecord
   validates :phone, length: { minimum: 10, maximum: 15 }
   validates :comment, presence: true, if: Proc.new { |restaurant| restaurant.suspended? }
   validates :album_images, presence: true
+  validate :at_least_one_cover
 
   after_validation :geocode, if: :address_changed?
+
+  private
 
   def send_email_approve
     SendEmailRestaurantJob.perform_later('approved', self, owner, I18n.locale.to_s)
@@ -53,5 +56,9 @@ class Restaurant < ApplicationRecord
 
   def remove_comment
     update_attribute('comment', nil)
+  end
+
+  def at_least_one_cover
+    errors.add(:base, I18n.t('activerecord.errors.models.restaurant.attributes.album_images.at_least_one_cover')) unless album_images.map(&:is_cover).uniq.include? true
   end
 end
