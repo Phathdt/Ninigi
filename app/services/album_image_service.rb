@@ -4,6 +4,11 @@ class AlbumImageService < BaseService
     [album_images, :ok]
   end
 
+  def destroy(album_image)
+    message = custom_destroy album_image
+    message
+  end
+
   private
 
   def render_state_error

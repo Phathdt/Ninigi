@@ -1,8 +1,8 @@
 module Api::V1
   class AlbumImagesController < BaseApiController
-    # prepend_before_action :authenticate_request!, only: %i[create update destroy repending published]
+    prepend_before_action :authenticate_request!, only: %i[destroy]
     before_action :find_restaurant, only: %i[index]
-    before_action :find_album_image, only: %i[show]
+    before_action :find_album_image, only: %i[show destroy]
 
     def index
       data, status = service.index(@restaurant, params[:page])
@@ -11,6 +11,12 @@ module Api::V1
 
     def show
       render_json(@album_image, :ok)
+    end
+
+    def destroy
+      authorize @album_image
+      data, status = service.destroy(@album_image)
+      render_json(data, status)
     end
 
     private

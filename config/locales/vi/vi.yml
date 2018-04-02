@@ -262,3 +262,6 @@ vi:
       repending: Nhà hàng đã được vào trạng thái chờ xử lí
       published: Nhà hàng đã được công khai
       error: Nhà hàng không thể đổi trạng thái hiện giờ, xin kiểm tra lại
+  album_images:
+    destroy:
+      success: Xoá hình ảnh nhà hàng thành công
