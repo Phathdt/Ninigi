@@ -1,7 +1,8 @@
 module Api::V1
   class AlbumImagesController < BaseApiController
     # prepend_before_action :authenticate_request!, only: %i[create update destroy repending published]
-    before_action :find_restaurant, only: %i[index update]
+    before_action :find_restaurant, only: %i[index]
+    before_action :find_album_image, only: %i[show]
 
     def index
       data, status = service.index(@restaurant, params[:page])
@@ -9,13 +10,17 @@ module Api::V1
     end
 
     def show
-      render_json(@restaurant, :ok)
+      render_json(@album_image, :ok)
     end
 
     private
 
     def find_restaurant
       @restaurant ||= Restaurant.find(params[:restaurant_id])
+    end
+
+    def find_album_image
+      @album_image ||= AlbumImage.find(params[:id])
     end
 
     def restaurant_params
