@@ -30,6 +30,8 @@ class ManagerRequest < ApplicationRecord
   belongs_to :restaurant
   belongs_to :manager, class_name: 'User', foreign_key: 'user_id'
 
+  validates_uniqueness_of :restaurant_id, scope: :user_id
+
   after_create :send_email_pending
 
   private
