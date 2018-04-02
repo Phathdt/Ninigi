@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/Phathdt/fast_jsonapi
-  revision: dee33b0954c6cfdbd2e5c00994c9d8dfaa42467a
-  ref: dee33b0
+  remote: https://github.com/fongfan999/fast_jsonapi
+  revision: dec71a557573fb375cd1b6f75df4359f38f27187
+  branch: feature/add-scope
   specs:
     fast_jsonapi (1.1.1)
       activesupport (>= 4.2)

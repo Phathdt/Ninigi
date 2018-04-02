@@ -28,9 +28,8 @@ class AlbumImage < ApplicationRecord
   private
 
   def check_is_cover
-    if is_cover
-      errors.add(:base, I18n.t('activerecord.errors.models.album_images.at_least_one_cover'))
-      throw(:abort)
-    end
+    return unless is_cover?
+    errors.add(:base, I18n.t('activerecord.errors.models.album_images.at_least_one_cover'))
+    throw(:abort)
   end
 end

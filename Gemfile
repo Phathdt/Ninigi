@@ -8,7 +8,7 @@ gem 'rails', '~> 5.1.5'
 ## Healper gems
 gem 'active_model_serializers', '~> 0.10.7'
 gem 'devise-i18n'
-gem 'fast_jsonapi', git: 'https://github.com/Phathdt/fast_jsonapi', ref: 'dee33b0'
+gem 'fast_jsonapi', git: 'https://github.com/fongfan999/fast_jsonapi', branch: 'feature/add-scope'
 gem 'figaro', '~> 1.1.1'
 gem 'i18n'
 

@@ -15,7 +15,13 @@ module ResponseWithJson
     class_name = %w[ActiveRecord::Relation ActiveRecord::AssociationRelation].include?(data.class.name) ? data.sti_name : data.class.name
 
     if MODEL_SERIALIZER.include?(class_name)
-      render json: "#{class_name}Serializer".constantize.new(data, current_user: current_user || User.new).serialized_json
+      options = {}
+      options[:meta] = { total: 2 }
+      options[:scope] = {
+        current_user: current_user || User.new,
+        size: params[:size].to_sym
+      }
+      render json: "#{class_name}Serializer".constantize.new(data, options).serialized_json
     else
       render json: data, status: status
     end
