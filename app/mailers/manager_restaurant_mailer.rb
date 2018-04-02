@@ -1,17 +1,14 @@
 class ManagerRestaurantMailer < ApplicationMailer
-
   def send_email(restaurant, manager, from_state, to_state, locale)
     subject =
       email_content_from(:subject,
                          from: from_state, to: to_state, name: restaurant.name,
-                         owner: restaurant.owner.name, manager: manager.name, locale: locale
-                         )
+                         owner: restaurant.owner.name, manager: manager.name, locale: locale)
     @content =
       email_content_from(:content,
                          from: from_state, to: to_state, name: restaurant.name,
                          owner: restaurant.owner.name, manager: manager.name, locale: locale,
-                         link: api_v1_restaurant_url(restaurant).gsub('api/v1/', '')
-                         )
+                         link: api_v1_restaurant_url(restaurant).gsub('api/v1/', ''))
     email_to =  case to_state.to_sym
                 when :pending
                   manager.email
