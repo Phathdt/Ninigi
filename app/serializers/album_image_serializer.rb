@@ -3,7 +3,5 @@ class AlbumImageSerializer
   attributes :caption, :is_cover
   set_key_transform :camel_lower
 
-  attribute :url do |object|
-    object.url
-  end
+  attribute :url, &:url
 end

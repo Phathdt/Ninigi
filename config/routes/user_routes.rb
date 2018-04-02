@@ -4,6 +4,7 @@ module UserRoutes
       namespace :api, defaults: { format: :json } do
         namespace :v1 do
           resources :restaurants do
+            resources :album_images, shallow: true, only: %i[index show]
             member do
               get :repending
               get :published
