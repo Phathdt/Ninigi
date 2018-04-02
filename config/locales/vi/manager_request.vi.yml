@@ -1,0 +1,63 @@
+vi:
+  manager_request:
+    notify_changed_status:
+      subject:
+        initial:
+          pending: "Chủ nhà hàng %{name} đã mời %{manager} làm quản lý"
+        pending:
+          approved: "Quản lý %{manager} đã chấp nhận lời mời của bạn"
+          suspended: "Quản lý %{manager} đã từ chối lời mời của bạn"
+        suspended:
+          pending: "Chủ nhà hàng %{name} đã lại mời %{manager} làm quản lý"
+        approved:
+          retired: "Chủ nhà hàng %{name} đã cho bạn về vườn"
+      content:
+        initial:
+          pending: |
+            Xin chào %{manager} !
+
+            Chủ nhà hàng %{owner} đã mời bạn làm quản lý nhà hàng %{name}
+
+            Để biết thêm thông tin chi tiết, vui lòng click vào đây %{link} .
+
+            Trân trọng,
+            Ninigi Team
+        pending:
+          approved: |
+            Xin chào %{owner} !
+
+            Quản lý %{manager} đã chấp nhận lời mời làm quản lý nhà hàng %{name} của bạn
+
+            Để biết thêm thông tin chi tiết, vui lòng click vào đây %{link} .
+
+            Trân trọng,
+            Ninigi Team
+          suspended: |
+            Xin chào %{owner} !
+
+            Quản lý %{manager} đã từ chối lời mời làm quản lý nhà hàng %{name} của bạn
+
+            Để biết thêm thông tin chi tiết, vui lòng click vào đây %{link} .
+
+            Trân trọng,
+            Ninigi Team
+        suspended:
+          pending: |
+            Xin chào %{manager} !
+
+            Chủ nhà hàng %{owner} đã mời bạn làm quản lý nhà hàng %{name}
+
+            Để biết thêm thông tin chi tiết, vui lòng click vào đây %{link} .
+
+            Trân trọng,
+            Ninigi Team
+        approved:
+          retired: |
+            Xin chào %{manager} !
+
+            Chủ nhà hàng %{owner} đã cho bạn về vườn
+
+            Để biết thêm thông tin chi tiết, vui lòng click vào đây %{link} .
+
+            Trân trọng,
+            Ninigi Team

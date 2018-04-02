@@ -28,17 +28,17 @@ class ManagerRequest < ApplicationRecord
   end
 
   belongs_to :restaurant
-  belongs_to :user
+  belongs_to :manager, class_name: "User", foreign_key: 'user_id'
 
   after_create :send_email_pending
 
   private
 
   def send_email_pending
-    puts "pending"
+    ManagerRestaurantMailer.send_email(restaurant, manager, :initial, :pending, I18n.locale.to_s).deliver
   end
 
   def send_email_manager_request
-    puts "changing from #{aasm.from_state} to #{aasm.to_state} (event: #{aasm.current_event})"
+    ManagerRestaurantMailer.send_email(restaurant, manager, aasm.from_state, aasm.to_state, I18n.locale.to_s).deliver
   end
 end
