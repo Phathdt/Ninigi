@@ -15,6 +15,7 @@ class AlbumImage < ApplicationRecord
   validates :temp_url, presence: true, unless: Proc.new { |album_image| album_image.photo.exists? }
 
   after_create { ProcessImagesJob.perform_later(self) }
+  before_destroy :check_is_cover
 
   def self.cover
     find_by(is_cover: true)
@@ -22,5 +23,14 @@ class AlbumImage < ApplicationRecord
 
   def url(version = :original)
     temp_url || photo.url(version)
+  end
+
+  private
+
+  def check_is_cover
+    if is_cover
+      errors.add(:base, I18n.t('activerecord.errors.models.album_images.at_least_one_cover'))
+      throw(:abort)
+    end
   end
 end
