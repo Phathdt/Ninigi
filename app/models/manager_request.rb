@@ -35,10 +35,10 @@ class ManagerRequest < ApplicationRecord
   private
 
   def send_email_pending
-    ManagerRestaurantMailer.send_email(restaurant, manager, :initial, :pending, I18n.locale.to_s).deliver
+    SendEmailManagerRequestJob.perform_later(restaurant, manager, 'initial', 'pending', I18n.locale.to_s)
   end
 
   def send_email_manager_request
-    ManagerRestaurantMailer.send_email(restaurant, manager, aasm.from_state, aasm.to_state, I18n.locale.to_s).deliver
+    SendEmailManagerRequestJob.perform_later(restaurant, manager, aasm.from_state.to_s, aasm.to_state.to_s, I18n.locale.to_s)
   end
 end
