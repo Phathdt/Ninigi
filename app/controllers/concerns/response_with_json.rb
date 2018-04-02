@@ -19,7 +19,7 @@ module ResponseWithJson
       options[:meta] = { total: 2 }
       options[:scope] = {
         current_user: current_user || User.new,
-        size: params[:size].to_sym
+        size: params[:size]&.to_sym
       }
       render json: "#{class_name}Serializer".constantize.new(data, options).serialized_json
     else

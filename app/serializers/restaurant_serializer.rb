@@ -8,6 +8,6 @@ class RestaurantSerializer < BaseSerializer
   end
 
   attribute :cover do |object|
-    object.cover(scope[:size])
+    object.cover(scope[:size] || :medium)
   end
 end
