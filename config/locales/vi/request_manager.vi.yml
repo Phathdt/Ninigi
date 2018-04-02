@@ -55,7 +55,7 @@ vi:
           retired: |
             Xin chào %{manager} !
 
-            Chủ nhà hàng %{owner} là %{owner} đã cho bạn về vườn
+            Chủ nhà hàng %{name} là %{owner} đã cho bạn về vườn
 
             Để biết thêm thông tin chi tiết, vui lòng click vào đây %{link} .
 
