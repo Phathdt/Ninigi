@@ -1,5 +1,5 @@
 vi:
-  manager_request:
+  request_manager:
     notify_changed_status:
       subject:
         initial:
@@ -16,7 +16,7 @@ vi:
           pending: |
             Xin chào %{manager} !
 
-            Chủ nhà hàng %{owner} đã mời bạn làm quản lý nhà hàng %{name}
+            Chủ nhà hàng %{name} là %{owner} đã mời bạn làm quản lý nhà hàng %{name}
 
             Để biết thêm thông tin chi tiết, vui lòng click vào đây %{link} .
 
@@ -45,7 +45,7 @@ vi:
           pending: |
             Xin chào %{manager} !
 
-            Chủ nhà hàng %{owner} đã mời bạn làm quản lý nhà hàng %{name}
+            Chủ nhà hàng %{name} là %{owner} đã mời bạn làm quản lý nhà hàng %{name}
 
             Để biết thêm thông tin chi tiết, vui lòng click vào đây %{link} .
 
@@ -55,7 +55,7 @@ vi:
           retired: |
             Xin chào %{manager} !
 
-            Chủ nhà hàng %{owner} đã cho bạn về vườn
+            Chủ nhà hàng %{owner} là %{owner} đã cho bạn về vườn
 
             Để biết thêm thông tin chi tiết, vui lòng click vào đây %{link} .
 
