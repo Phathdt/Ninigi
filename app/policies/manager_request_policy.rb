@@ -24,6 +24,6 @@ class ManagerRequestPolicy < ApplicationPolicy
   end
 
   def retire?
-    index?
+    index? || record.manager == user
   end
 end
