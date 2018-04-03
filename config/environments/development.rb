@@ -86,4 +86,11 @@ Rails.application.configure do
   #     s3_host_name: ENV['S3_HOST_NAME']
   #   }
   # }
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.console = true
+    Bullet.rails_logger = true
+    Bullet.bullet_logger = true
+  end
 end

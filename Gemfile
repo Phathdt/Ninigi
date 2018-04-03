@@ -34,6 +34,7 @@ gem 'mini_magick'
 gem 'paperclip'
 
 group :development do
+  gem 'bullet', '~> 5.5', '>= 5.5.1'
   gem 'byebug'
   gem 'foreman', '~> 0.82.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
