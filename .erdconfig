@@ -1,0 +1,19 @@
+attributes:
+  - content
+  - foreign_key
+  - inheritance
+disconnected: true
+filename: ninigi-model
+filetype: pdf
+indirect: false
+inheritance: true
+markup: true
+notation: simple
+orientation: vertical
+polymorphism: true
+sort: true
+warn: true
+title: Ninigi - Entity Relationships Diagram
+exclude: ApplicationRecord,DataMigrate::DataSchemaMigration,ActiveRecord::SchemaMigration
+only: null
+prepend_primary: false
