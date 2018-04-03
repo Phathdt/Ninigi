@@ -4,6 +4,7 @@ vi:
       restaurant: Nhà hàng
       user: Người dùng
       album_image: Hình ảnh nhà hàng
+      manager_request: Lời mời làm quản lý
     attributes:
       user:
         name: Tên người dùng
@@ -16,6 +17,8 @@ vi:
       album_image:
         caption: Tiêu đề
         temp_url: link tạm
+      manager_request:
+        comment: Lí do
     exceptions:
       not_found: "Không tìm thấy %{klass}"
     errors:
@@ -25,6 +28,10 @@ vi:
             album_images:
               blank: Phải có ít nhất 1 hình ảnh nhà hàng
               at_least_one_cover: Phải có một cover
+        manager_request:
+          attributes:
+            manager:
+              required: thông tin người dùng sai
         album_images:
           at_least_one_cover: Nhà hàng phải có một cover
 
@@ -265,3 +272,13 @@ vi:
   album_images:
     destroy:
       success: Xoá hình ảnh nhà hàng thành công
+  manager_requests:
+    create:
+      success: Tạo lời mời làm quản lý thành công
+      failure: Tạo lời mời làm quản lý thất bại
+    state:
+      approve: Lời mời làm quản lý đã được chấp nhận
+      reject: Lời mời làm quản lý đã được từ chối
+      repending: Lời mời làm quản lý đã được vào trạng thái chờ xử lí
+      retire: Lời mời làm quản lý đã huỷ
+      error: Lời mời làm quản lý không thể đổi trạng thái hiện giờ, xin kiểm tra lại
