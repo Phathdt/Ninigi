@@ -6,7 +6,29 @@ User.create(
 )
 
 admin = User.first
-admin.confirm
+
+user1 = User.create(
+  name: 'Phat 123',
+  email: 'droidmaxxx@gmail.com',
+  password: '123123123',
+  password_confirmation: '123123123'
+)
+
+user2 = User.create(
+  name: 'Pool 123',
+  email: 'phathdt@nustechnology.com',
+  password: '123123123',
+  password_confirmation: '123123123'
+)
+
+user3 = User.create(
+  name: 'Pool 1234',
+  email: 'vasco_sama@yahoo.com',
+  password: '123123123',
+  password_confirmation: '123123123'
+)
+
+User.all.each(&:confirm)
 
 admin.add_role(:admin)
 
@@ -75,3 +97,14 @@ admin.restaurants.create(
     }
   ]
 )
+
+r = Restaurant.first
+r1 = r.manager_requests.create(manager: user1)
+r1.approve!
+r2 = r.manager_requests.create(manager: user2)
+r2.comment = 'ko thich nha hang nay'
+r2.reject!
+r3 = r.manager_requests.create(manager: user3)
+r3.approve!
+r3.comment = 'lam viec chan qua'
+r3.retire!
