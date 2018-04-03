@@ -16,7 +16,6 @@ module ResponseWithJson
 
     if MODEL_SERIALIZER.include?(class_name)
       options = {}
-      options[:meta] = { total: 2 }
       options[:scope] = {
         current_user: current_user || User.new,
         size: params[:size]&.to_sym
