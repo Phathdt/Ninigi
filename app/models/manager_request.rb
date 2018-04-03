@@ -18,7 +18,7 @@ class ManagerRequest < ApplicationRecord
       transitions from: :pending, to: :suspended
     end
 
-    event :repending do
+    event :repending, after: :remove_comment do
       transitions from: :suspended, to: :pending
     end
 
@@ -31,10 +31,15 @@ class ManagerRequest < ApplicationRecord
   belongs_to :manager, class_name: 'User', foreign_key: 'user_id'
 
   validates_uniqueness_of :restaurant_id, scope: :user_id
+  validates :comment, presence: true, if: Proc.new { |req| req.suspended? || req.retired? }
 
   after_create :send_email_pending
 
   private
+
+  def remove_comment
+    update_attribute('comment', nil)
+  end
 
   def send_email_pending
     SendEmailManagerRequestJob.perform_later(restaurant, manager, 'initial', 'pending', I18n.locale.to_s)
