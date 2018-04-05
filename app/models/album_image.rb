@@ -1,4 +1,5 @@
 class AlbumImage < ApplicationRecord
+  include Photoable
   acts_as_paranoid
 
   has_attached_file :photo, styles: {
@@ -12,17 +13,11 @@ class AlbumImage < ApplicationRecord
   validates_attachment :photo, size: { in: 0..MAX_FIZESIZE },
     content_type: { content_type: CONTENT_TYPE_PATTERN }
   validates :caption, presence: true, length: { minimum: 1, maximum: 254 }
-  validates :temp_url, presence: true, unless: Proc.new { |album_image| album_image.photo.exists? }
 
-  after_create { ProcessImagesJob.perform_later(self) }
   before_destroy :check_is_cover
 
   def self.cover
     find_by(is_cover: true)
-  end
-
-  def url(version = :original)
-    temp_url || photo.url(version)
   end
 
   private
