@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180405143122) do
+ActiveRecord::Schema.define(version: 20180407145602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,8 +52,6 @@ ActiveRecord::Schema.define(version: 20180405143122) do
     t.string "name"
     t.text "description"
     t.integer "price"
-    t.integer "unit"
-    t.boolean "active", default: false
     t.string "temp_url"
     t.uuid "restaurant_id"
     t.datetime "created_at", null: false
@@ -63,6 +61,8 @@ ActiveRecord::Schema.define(version: 20180405143122) do
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
     t.datetime "deleted_at"
+    t.boolean "is_active", default: false
+    t.boolean "is_public", default: false
     t.index ["deleted_at"], name: "index_dishes_on_deleted_at"
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
   end
