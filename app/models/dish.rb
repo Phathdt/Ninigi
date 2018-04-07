@@ -4,7 +4,6 @@ class Dish < ApplicationRecord
 
   has_attached_file :photo, styles: {
     mobile_small: "64x64>",
-    square: '175x175#',
     medium: '275x275>',
     big: '600x600>'
   }
