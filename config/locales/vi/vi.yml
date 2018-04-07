@@ -5,6 +5,7 @@ vi:
       user: Người dùng
       album_image: Hình ảnh nhà hàng
       manager_request: Lời mời làm quản lý
+      dish: Món ăn
     attributes:
       user:
         name: Tên người dùng
@@ -19,6 +20,8 @@ vi:
         temp_url: link tạm
       manager_request:
         comment: Lí do
+      dish:
+        temp_url: link tạm
     exceptions:
       not_found: "Không tìm thấy %{klass}"
     errors:
@@ -282,3 +285,11 @@ vi:
       repending: Lời mời làm quản lý đã được vào trạng thái chờ xử lí
       retire: Lời mời làm quản lý đã huỷ
       error: Lời mời làm quản lý không thể đổi trạng thái hiện giờ, xin kiểm tra lại
+  dishes:
+    create:
+      failure: Tạo món ăn thất bại
+      success: Tạo món ăn thành công
+    update:
+      success: Sửa món ăn thành công
+    destroy:
+      success: Xoá món ăn thành công
