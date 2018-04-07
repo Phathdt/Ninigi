@@ -35,6 +35,7 @@ class Restaurant < ApplicationRecord
   has_many :manager_requests, dependent: :destroy
   has_many :approve_manager_requests, -> { approved }, class_name: 'ManagerRequest'
   has_many :managers, through: :approve_manager_requests, class_name: 'User'
+  has_many :dishes, dependent: :destroy
 
   accepts_nested_attributes_for :album_images, allow_destroy: true, reject_if: proc { |attributes| attributes['temp_url'].blank? }
 
