@@ -1,5 +1,4 @@
-class ManagerRequestSerializer
-  include FastJsonapi::ObjectSerializer
+class ManagerRequestSerializer < BaseSerializer
   attributes :state, :comment, :updated_at
   set_key_transform :camel_lower
 
