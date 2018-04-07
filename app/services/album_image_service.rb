@@ -8,10 +8,4 @@ class AlbumImageService < BaseService
     message = custom_destroy album_image
     message
   end
-
-  private
-
-  def render_state_error
-    [{ message: I18n.t('restaurants.state.error') }, :unprocessable_entity]
-  end
 end
