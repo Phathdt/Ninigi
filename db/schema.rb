@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403154051) do
+ActiveRecord::Schema.define(version: 20180405143122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,25 @@ ActiveRecord::Schema.define(version: 20180403154051) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "dishes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+    t.integer "unit"
+    t.boolean "active", default: false
+    t.string "temp_url"
+    t.uuid "restaurant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_dishes_on_deleted_at"
+    t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
   end
 
   create_table "manager_requests", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -139,6 +158,7 @@ ActiveRecord::Schema.define(version: 20180403154051) do
   end
 
   add_foreign_key "album_images", "restaurants"
+  add_foreign_key "dishes", "restaurants"
   add_foreign_key "manager_requests", "restaurants"
   add_foreign_key "manager_requests", "users"
   add_foreign_key "restaurants", "users"
