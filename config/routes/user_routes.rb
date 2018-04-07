@@ -19,6 +19,13 @@ module UserRoutes
                 post :retire
               end
             end
+
+            resources :dishes, shallow: true, only: %i[index show create update destroy] do
+               member do
+                get :toggle_active
+                get :toggle_public
+              end
+            end
           end
         end
       end
