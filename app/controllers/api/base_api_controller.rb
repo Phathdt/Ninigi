@@ -12,7 +12,7 @@ class Api::BaseApiController < ActionController::API
     return if controller_name == 'base_api' || controller_path.include?('admin')
 
     service ||= "#{controller_name.singularize.camelize}Service".constantize
-    @service ||= service.new(current_user, controller_name, action_name)
+    @service ||= service.new(current_user || User.new, controller_name, action_name)
   end
 
   def set_locale
