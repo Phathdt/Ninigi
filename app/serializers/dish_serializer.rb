@@ -1,9 +1,19 @@
 class DishSerializer < BaseSerializer
-  attributes :name, :description, :price, :is_active, :is_public
+  attributes :name, :description, :is_active, :is_public
   set_type :dish
   set_key_transform :camel_lower
 
   attribute :cover do |object|
     object.url(scope[:size] || :medium)
+  end
+
+  attribute :variants do |object|
+    object.variants.map do |variant|
+      {
+        id: variant.id,
+        size: I18n.t("size.#{variant.size}"),
+        price: variant.price
+      }
+    end
   end
 end

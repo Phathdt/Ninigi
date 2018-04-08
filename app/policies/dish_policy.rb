@@ -4,6 +4,11 @@ class DishPolicy < ApplicationPolicy
       return restaurant.dishes if have_policy?
       restaurant.dishes.where(is_public: true)
     end
+
+    def can_show?(dish)
+      return true if dish.is_public?
+      have_policy?
+    end
   end
 
   def create?

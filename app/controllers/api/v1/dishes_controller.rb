@@ -19,6 +19,7 @@ module Api::V1
 
     def show
       return render_missing_restaurant unless can_action?(current_user, @dish.restaurant)
+      return render_missing_dish unless can_show?(current_user, @dish.restaurant, @dish)
       render_json(@dish, :ok)
     end
 
@@ -53,7 +54,12 @@ module Api::V1
     end
 
     def dish_params
-      params.require(:dishes).permit(:name, :description, :price, :temp_url)
+      params.require(:dishes).permit(:name, :description, :temp_url,
+        variants_attrs)
+    end
+
+    def variants_attrs
+      { variants_attributes: %i[id size price _destroy] }
     end
 
     def authorize_dish
@@ -62,6 +68,17 @@ module Api::V1
 
     def can_action?(user, restaurant)
       DishPolicy::Scope.new(user || User.new, restaurant).can_action?
+    end
+
+    def can_show?(user, restaurant, dish)
+      DishPolicy::Scope.new(user || User.new, restaurant).can_show?(dish)
+    end
+
+    def render_missing_dish
+      render json: {
+        message: I18n.t('activerecord.exceptions.not_found',
+          klass: I18n.t('activerecord.models.dish'))
+      }, status: :unprocessable_entity
     end
   end
 end
