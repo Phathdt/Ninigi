@@ -697,6 +697,8 @@ Rails/TimeZone:
 Rails/SkipsModelValidations:
   Exclude:
     - 'app/models/restaurant.rb'
+    - 'app/controllers/api/v1/dishes_controller.rb'
+    - 'app/models/manager_request.rb'
 
 Rails/OutputSafety:
   Exclude:
