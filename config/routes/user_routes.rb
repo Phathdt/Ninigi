@@ -25,6 +25,7 @@ module UserRoutes
                 get :toggle_active
                 get :toggle_public
               end
+              resources :variants, shallow: true, only: %i[create update destroy]
             end
           end
         end

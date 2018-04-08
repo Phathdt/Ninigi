@@ -6,6 +6,7 @@ vi:
       album_image: Hình ảnh nhà hàng
       manager_request: Lời mời làm quản lý
       dish: Món ăn
+      variant: Loại
     attributes:
       user:
         name: Tên người dùng
@@ -22,6 +23,11 @@ vi:
         comment: Lí do
       dish:
         temp_url: link tạm
+      variants:
+        size: ''
+      variant:
+        size: Kích cỡ
+        price: Giá
     exceptions:
       not_found: "Không tìm thấy %{klass}"
     errors:
@@ -31,6 +37,15 @@ vi:
             album_images:
               blank: Phải có ít nhất 1 hình ảnh nhà hàng
               at_least_one_cover: Phải có một cover
+        variant:
+          attributes:
+            size:
+              inclusion: Kích cỡ không phù hợp
+        dish:
+          attributes:
+            variants:
+              at_least_one_variant: Phải có ít nhất một loại
+              duplicate_size: không thể có 2 size %{size}
         manager_request:
           attributes:
             manager:
@@ -293,3 +308,16 @@ vi:
       success: Sửa món ăn thành công
     destroy:
       success: Xoá món ăn thành công
+  variants:
+    create:
+      failure: Tạo loại thất bại
+      success: Tạo loại thành công
+    update:
+      success: Sửa loại thành công
+    destroy:
+      success: Xoá loại thành công
+
+  size:
+    small: Nhỏ
+    medium: Vừa
+    large: Lớn
