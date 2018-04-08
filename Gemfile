@@ -48,5 +48,14 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'shoulda-matchers'
+  gem "faker", require: false
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
+  gem 'timecop'
+  gem 'webmock'
+end
+
 ## Ruby version
 ruby '2.4.1'
