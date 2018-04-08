@@ -18,4 +18,11 @@ class Api::BaseApiController < ActionController::API
   def set_locale
     I18n.locale = current_user&.locale || I18n.default_locale
   end
+
+  def render_missing_restaurant
+    render json: {
+      message: I18n.t('activerecord.exceptions.not_found',
+        klass: I18n.t('activerecord.models.restaurant'))
+    }, status: :unprocessable_entity
+  end
 end

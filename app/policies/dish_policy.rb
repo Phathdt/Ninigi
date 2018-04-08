@@ -8,8 +8,19 @@ class DishPolicy < ApplicationPolicy
     end
 
     def resolve
-      return restaurant.dishes if restaurant.owner == user || restaurant.managers.where(id: user).exists?
+      return restaurant.dishes if have_policy?
       restaurant.dishes.where(is_public: true)
+    end
+
+    def can_action?
+      have_policy? || restaurant.publiced?
+    end
+
+    private
+
+    def have_policy?
+      restaurant.owner == user ||
+        restaurant.managers.where(id: user).exists?
     end
   end
 

@@ -6,6 +6,7 @@ module Api::V1
     before_action :authorize_dish, only: %i[update destroy toggle_active toggle_public]
 
     def index
+      return render_missing_restaurant unless can_action?(current_user, @restaurant)
       data, status = service.index(@restaurant, params[:page])
       render_json(data, status)
     end
@@ -17,6 +18,7 @@ module Api::V1
     end
 
     def show
+      return render_missing_restaurant unless can_action?(current_user, @dish.restaurant)
       render_json(@dish, :ok)
     end
 
@@ -56,6 +58,10 @@ module Api::V1
 
     def authorize_dish
       authorize @dish
+    end
+
+    def can_action?(user, restaurant)
+      DishPolicy::Scope.new(user || User.new, restaurant).can_action?
     end
   end
 end
