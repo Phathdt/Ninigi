@@ -49,10 +49,10 @@ group :development, :test do
 end
 
 group :test do
-  gem 'shoulda-matchers'
-  gem "faker", require: false
   gem 'database_cleaner'
+  gem 'faker', require: false
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
   gem 'timecop'
   gem 'webmock'
 end
