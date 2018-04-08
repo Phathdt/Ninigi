@@ -5,11 +5,13 @@ module Api::V1
     before_action :find_album_image, only: %i[show destroy]
 
     def index
+      return render_missing_restaurant unless can_action?(current_user, @restaurant)
       data, status = service.index(@restaurant, params[:page])
       render_json(data, status)
     end
 
     def show
+      return render_missing_restaurant unless can_action?(current_user, @album_image.restaurant)
       render_json(@album_image, :ok)
     end
 
@@ -36,6 +38,10 @@ module Api::V1
 
     def album_images_attrs
       { album_images_attributes: %i[id caption is_cover temp_url _destroy] }
+    end
+
+    def can_action?(user, restaurant)
+      AlbumImagePolicy::Scope.new(user || User.new, restaurant).can_action?
     end
   end
 end

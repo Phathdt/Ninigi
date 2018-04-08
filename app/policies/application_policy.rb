@@ -39,15 +39,22 @@ class ApplicationPolicy
   end
 
   class Scope
-    attr_reader :user, :scope
+    attr_reader :user, :restaurant
 
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
+    def initialize(user, restaurant)
+      @user  = user
+      @restaurant = restaurant
     end
 
-    def resolve
-      scope
+    def can_action?
+      have_policy? || restaurant.publiced?
+    end
+
+    private
+
+    def have_policy?
+      restaurant.owner == user ||
+        restaurant.managers.where(id: user).exists?
     end
   end
 end
