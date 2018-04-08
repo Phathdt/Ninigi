@@ -102,12 +102,12 @@ r1 = Restaurant.first
 r2 = Restaurant.last
 r1.approve!
 
-mr1 = r.manager_requests.create(manager: user1)
+mr1 = r1.manager_requests.create(manager: user1)
 mr1.approve!
-mr2 = r.manager_requests.create(manager: user2)
+mr2 = r1.manager_requests.create(manager: user2)
 mr2.comment = 'ko thich nha hang nay'
 mr2.reject!
-mr3 = r.manager_requests.create(manager: user3)
+mr3 = r1.manager_requests.create(manager: user3)
 mr3.approve!
 mr3.comment = 'lam viec chan qua'
 mr3.retire!
