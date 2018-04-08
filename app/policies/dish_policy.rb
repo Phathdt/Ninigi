@@ -1,16 +1,15 @@
 class DishPolicy < ApplicationPolicy
   class Scope
-    attr_reader :user, :restaurant, :scope
+    attr_reader :user, :restaurant
 
-    def initialize(user, restaurant, scope)
+    def initialize(user, restaurant)
       @user  = user
-      @scope = scope
       @restaurant = restaurant
     end
 
     def resolve
-      return scope.all if restaurant.owner == user || restaurant.managers.where(id: user).exists?
-      scope.where(is_public: true)
+      return restaurant.dishes if restaurant.owner == user || restaurant.managers.where(id: user).exists?
+      restaurant.dishes.where(is_public: true)
     end
   end
 
