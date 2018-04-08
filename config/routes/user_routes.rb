@@ -21,7 +21,7 @@ module UserRoutes
             end
 
             resources :dishes, shallow: true, only: %i[index show create update destroy] do
-               member do
+              member do
                 get :toggle_active
                 get :toggle_public
               end

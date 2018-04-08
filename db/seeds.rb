@@ -113,58 +113,57 @@ mr3.comment = 'lam viec chan qua'
 mr3.retire!
 
 r1.dishes.create(
-  name: "Americano",
-  description: "phong cách cà phê chuẩn bị bằng cách thêm nước nóng vào espresso, điều này làm cà phê có độ đậm tương tự, nhưng hương vị lại khác, giống cà phê phin. Độ đạm của một tách Americano thay đổi theo số lượng tách espresso và lượng nước bổ sung.",
+  name: 'Americano',
+  description: 'phong cách cà phê chuẩn bị bằng cách thêm nước nóng vào espresso, điều này làm cà phê có độ đậm tương tự, nhưng hương vị lại khác, giống cà phê phin. Độ đạm của một tách Americano thay đổi theo số lượng tách espresso và lượng nước bổ sung.',
   price: 44000,
-  temp_url: "http://cowboysplace.com.vn/wp-content/uploads/2017/08/3c7c1ccfbbd6002683b8a4ff019f4f95.jpeg"
+  temp_url: 'http://cowboysplace.com.vn/wp-content/uploads/2017/08/3c7c1ccfbbd6002683b8a4ff019f4f95.jpeg'
 )
 
 r1.dishes.create(
-  name: "Capuchino",
-  description: " Một cà phê cappuccino bao gồm ba phần đều nhau: cà phê espresso pha với một lượng nước gấp đôi (espresso lungo), sữa nóng và sữa sủi bọt. Để hoàn thiện khẩu vị, người ta thường rải lên trên tách cà phê cappuccino là bột ca cao và/hay bột quế. Trong các quán cà phê ở Ý, người đứng bán ở bar (barista) thường dùng khuôn hay dùng thìa và bằng cách khuấy điệu nghệ trong lúc rắc bột để tạo thành các hình nghệ thuật.",
+  name: 'Capuchino',
+  description: ' Một cà phê cappuccino bao gồm ba phần đều nhau: cà phê espresso pha với một lượng nước gấp đôi (espresso lungo), sữa nóng và sữa sủi bọt. Để hoàn thiện khẩu vị, người ta thường rải lên trên tách cà phê cappuccino là bột ca cao và/hay bột quế. Trong các quán cà phê ở Ý, người đứng bán ở bar (barista) thường dùng khuôn hay dùng thìa và bằng cách khuấy điệu nghệ trong lúc rắc bột để tạo thành các hình nghệ thuật.',
   price: 54000,
-  temp_url: "https://i.ndtvimg.com/i/2017-02/coffee_620x318_41486141224.jpg"
+  temp_url: 'https://i.ndtvimg.com/i/2017-02/coffee_620x318_41486141224.jpg'
 )
 
 r1.dishes.create(
-  name: "Freeze socola",
-  description: "Béo ngậy với sô-cô-la và kem tươi, mát lạnh với đá bào đã tạo nên một ly freeze cà phê thật tuyệt vời. Đơn giản lắm, cùng thử nha!",
+  name: 'Freeze socola',
+  description: 'Béo ngậy với sô-cô-la và kem tươi, mát lạnh với đá bào đã tạo nên một ly freeze cà phê thật tuyệt vời. Đơn giản lắm, cùng thử nha!',
   price: 49000,
-  temp_url: "http://familyfoodvietnam.com/web/media/k2/items/cache/c36ca621a5bd9f22ed82eb87110f16dc_L.jpg"
+  temp_url: 'http://familyfoodvietnam.com/web/media/k2/items/cache/c36ca621a5bd9f22ed82eb87110f16dc_L.jpg'
 )
 
 r1.dishes.create(
-  name: "Latte",
-  description: "kiểu cà phê sữa của Ý, thường được uống trong bữa ăn sáng. Người Ý uống cà phê latte trong một cốc to, có khi đựng trong bát. Một cốc latte bao gồm 2 phần: espresso (khoảng 50 ml) và sữa bò tươi hâm nóng. Bọt sữa hiếm khi được sử dụng",
+  name: 'Latte',
+  description: 'kiểu cà phê sữa của Ý, thường được uống trong bữa ăn sáng. Người Ý uống cà phê latte trong một cốc to, có khi đựng trong bát. Một cốc latte bao gồm 2 phần: espresso (khoảng 50 ml) và sữa bò tươi hâm nóng. Bọt sữa hiếm khi được sử dụng',
   price: 54000,
-  temp_url: "http://izzibingvn425.chiliweb.org/wp-content/uploads/2017/10/latte-coffee-cup_1203-3395.jpg"
+  temp_url: 'http://izzibingvn425.chiliweb.org/wp-content/uploads/2017/10/latte-coffee-cup_1203-3395.jpg'
 )
 
 r2.dishes.create(
-  name: "Americano",
-  description: "phong cách cà phê chuẩn bị bằng cách thêm nước nóng vào espresso, điều này làm cà phê có độ đậm tương tự, nhưng hương vị lại khác, giống cà phê phin. Độ đạm của một tách Americano thay đổi theo số lượng tách espresso và lượng nước bổ sung.",
+  name: 'Americano',
+  description: 'phong cách cà phê chuẩn bị bằng cách thêm nước nóng vào espresso, điều này làm cà phê có độ đậm tương tự, nhưng hương vị lại khác, giống cà phê phin. Độ đạm của một tách Americano thay đổi theo số lượng tách espresso và lượng nước bổ sung.',
   price: 44000,
-  temp_url: "http://cowboysplace.com.vn/wp-content/uploads/2017/08/3c7c1ccfbbd6002683b8a4ff019f4f95.jpeg"
+  temp_url: 'http://cowboysplace.com.vn/wp-content/uploads/2017/08/3c7c1ccfbbd6002683b8a4ff019f4f95.jpeg'
 )
 
 r2.dishes.create(
-  name: "Capuchino",
-  description: " Một cà phê cappuccino bao gồm ba phần đều nhau: cà phê espresso pha với một lượng nước gấp đôi (espresso lungo), sữa nóng và sữa sủi bọt. Để hoàn thiện khẩu vị, người ta thường rải lên trên tách cà phê cappuccino là bột ca cao và/hay bột quế. Trong các quán cà phê ở Ý, người đứng bán ở bar (barista) thường dùng khuôn hay dùng thìa và bằng cách khuấy điệu nghệ trong lúc rắc bột để tạo thành các hình nghệ thuật.",
+  name: 'Capuchino',
+  description: ' Một cà phê cappuccino bao gồm ba phần đều nhau: cà phê espresso pha với một lượng nước gấp đôi (espresso lungo), sữa nóng và sữa sủi bọt. Để hoàn thiện khẩu vị, người ta thường rải lên trên tách cà phê cappuccino là bột ca cao và/hay bột quế. Trong các quán cà phê ở Ý, người đứng bán ở bar (barista) thường dùng khuôn hay dùng thìa và bằng cách khuấy điệu nghệ trong lúc rắc bột để tạo thành các hình nghệ thuật.',
   price: 54000,
-  temp_url: "https://i.ndtvimg.com/i/2017-02/coffee_620x318_41486141224.jpg"
+  temp_url: 'https://i.ndtvimg.com/i/2017-02/coffee_620x318_41486141224.jpg'
 )
 
 r2.dishes.create(
-  name: "Freeze socola",
-  description: "Béo ngậy với sô-cô-la và kem tươi, mát lạnh với đá bào đã tạo nên một ly freeze cà phê thật tuyệt vời. Đơn giản lắm, cùng thử nha!",
+  name: 'Freeze socola',
+  description: 'Béo ngậy với sô-cô-la và kem tươi, mát lạnh với đá bào đã tạo nên một ly freeze cà phê thật tuyệt vời. Đơn giản lắm, cùng thử nha!',
   price: 49000,
-  temp_url: "http://familyfoodvietnam.com/web/media/k2/items/cache/c36ca621a5bd9f22ed82eb87110f16dc_L.jpg"
+  temp_url: 'http://familyfoodvietnam.com/web/media/k2/items/cache/c36ca621a5bd9f22ed82eb87110f16dc_L.jpg'
 )
 
 r2.dishes.create(
-  name: "Latte",
-  description: "kiểu cà phê sữa của Ý, thường được uống trong bữa ăn sáng. Người Ý uống cà phê latte trong một cốc to, có khi đựng trong bát. Một cốc latte bao gồm 2 phần: espresso (khoảng 50 ml) và sữa bò tươi hâm nóng. Bọt sữa hiếm khi được sử dụng",
+  name: 'Latte',
+  description: 'kiểu cà phê sữa của Ý, thường được uống trong bữa ăn sáng. Người Ý uống cà phê latte trong một cốc to, có khi đựng trong bát. Một cốc latte bao gồm 2 phần: espresso (khoảng 50 ml) và sữa bò tươi hâm nóng. Bọt sữa hiếm khi được sử dụng',
   price: 54000,
-  temp_url: "http://izzibingvn425.chiliweb.org/wp-content/uploads/2017/10/latte-coffee-cup_1203-3395.jpg"
+  temp_url: 'http://izzibingvn425.chiliweb.org/wp-content/uploads/2017/10/latte-coffee-cup_1203-3395.jpg'
 )
-

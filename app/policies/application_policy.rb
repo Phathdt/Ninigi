@@ -42,7 +42,7 @@ class ApplicationPolicy
     attr_reader :user, :restaurant
 
     def initialize(user, restaurant)
-      @user  = user
+      @user = user
       @restaurant = restaurant
     end
 
