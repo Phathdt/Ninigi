@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408070119) do
+ActiveRecord::Schema.define(version: 20180408132855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -156,10 +156,22 @@ ActiveRecord::Schema.define(version: 20180408070119) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  create_table "variants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "size"
+    t.integer "price", default: 0
+    t.uuid "dish_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_variants_on_deleted_at"
+    t.index ["dish_id"], name: "index_variants_on_dish_id"
+  end
+
   add_foreign_key "album_images", "restaurants"
   add_foreign_key "dishes", "restaurants"
   add_foreign_key "manager_requests", "restaurants"
   add_foreign_key "manager_requests", "users"
   add_foreign_key "restaurants", "users"
   add_foreign_key "sessions", "users"
+  add_foreign_key "variants", "dishes"
 end
