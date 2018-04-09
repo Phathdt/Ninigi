@@ -106,6 +106,7 @@ Metrics/BlockLength:
     - "**/*_spec.rb"
     - "lib/tasks/**/*.rake"
     - 'config/initializers/devise.rb'
+    - 'config/routes/user_routes.rb'
 
 Metrics/CyclomaticComplexity:
   Description: >-

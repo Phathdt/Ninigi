@@ -10,14 +10,4 @@ module Reviewable
 
     scope :order_by_average, -> { unscope_order.order(ORDER_BY_AVERAGE) }
   end
-
-  module InstanceMethods
-    def calcu_average
-      byebug
-    end
-  end
-
-  def self.included(receiver)
-    receiver.send :include, InstanceMethods
-  end
 end
