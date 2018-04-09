@@ -1,5 +1,6 @@
 class Dish < ApplicationRecord
   include Photoable
+  include Reviewable
   acts_as_paranoid
 
   has_attached_file :photo, styles: {
