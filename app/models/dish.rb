@@ -23,12 +23,12 @@ class Dish < ApplicationRecord
   private
 
   def at_least_one_variant
-    errors.add(:base, I18n.t('activerecord.errors.models.dish.attributes.variants.at_least_one_variant')) if variants.size < 1
+    errors.add(:base, I18n.t('activerecord.errors.models.dish.attributes.variants.at_least_one_variant')) if variants.empty?
   end
 
   def check_duplicate_size_variant
     arr_size = variants.map(&:size)
-    size_duplicate = arr_size.detect{ |e| arr_size.count(e) > 1 }
-    errors.add(:base, I18n.t('activerecord.errors.models.dish.attributes.variants.duplicate_size', size: I18n.t("size.#{size_duplicate}") )) if size_duplicate
+    size_duplicate = arr_size.detect { |e| arr_size.count(e) > 1 }
+    errors.add(:base, I18n.t('activerecord.errors.models.dish.attributes.variants.duplicate_size', size: I18n.t("size.#{size_duplicate}"))) if size_duplicate
   end
 end

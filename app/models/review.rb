@@ -4,8 +4,8 @@ class Review < ApplicationRecord
   belongs_to :reviewable, polymorphic: true
   belongs_to :user
   has_many :images, dependent: :destroy
-  counter_culture :reviewable, column_name: "review_point", delta_column: 'point'
-  counter_culture :reviewable, column_name: "review_count"
+  counter_culture :reviewable, column_name: 'review_point', delta_column: 'point'
+  counter_culture :reviewable, column_name: 'review_count'
 
   validates :point, numericality: {
     only_integer: true,

@@ -14,14 +14,14 @@ class Variant < ApplicationRecord
 
   def check_presence_size
     arr_size = dish.variants.map(&:size)
-    size_duplicate = arr_size.detect{ |e| arr_size.count(e) > 1 }
-    errors.add(:base, I18n.t('activerecord.errors.models.dish.attributes.variants.duplicate_size', size: I18n.t("size.#{size_duplicate}") )) if size_duplicate
+    size_duplicate = arr_size.detect { |e| arr_size.count(e) > 1 }
+    errors.add(:base, I18n.t('activerecord.errors.models.dish.attributes.variants.duplicate_size', size: I18n.t("size.#{size_duplicate}"))) if size_duplicate
   end
 
   def check_presence_size_when_update
     arr_size = dish.variants.where.not(id: id).map(&:size)
     dupplicate_size = arr_size.include?(size)
-    errors.add(:base, I18n.t('activerecord.errors.models.dish.attributes.variants.duplicate_size', size: I18n.t("size.#{size}") )) if dupplicate_size
+    errors.add(:base, I18n.t('activerecord.errors.models.dish.attributes.variants.duplicate_size', size: I18n.t("size.#{size}"))) if dupplicate_size
   end
 
   def check_is_the_last_variant
