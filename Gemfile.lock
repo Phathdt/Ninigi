@@ -55,6 +55,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    after_commit_action (1.1.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     arel (8.0.0)
     aws-partitions (1.78.0)
     aws-sdk (3.0.1)
@@ -621,6 +624,10 @@ GEM
     climate_control (0.2.0)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
+    counter_culture (1.9.1)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      after_commit_action (~> 1.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.3)
@@ -825,6 +832,7 @@ DEPENDENCIES
   aws-sdk
   bullet (~> 5.5, >= 5.5.1)
   byebug
+  counter_culture
   database_cleaner
   delayed_job_active_record
   devise (~> 4.4.1)

@@ -27,6 +27,7 @@ gem 'kaminari', '~> 1.1.1'
 gem 'paranoia', '~> 2.4.0'
 gem 'rack-cors', '~> 1.0.2'
 gem 'slim-rails'
+gem 'counter_culture'
 
 ## images and assset
 gem 'aws-sdk'
