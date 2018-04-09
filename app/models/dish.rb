@@ -11,7 +11,8 @@ class Dish < ApplicationRecord
   belongs_to :restaurant
   has_many :variants, dependent: :destroy
 
-  accepts_nested_attributes_for :variants, allow_destroy: true, reject_if: proc { |attributes| attributes['price'].blank? }
+  accepts_nested_attributes_for :variants, allow_destroy: true,
+   reject_if: proc { |attributes| attributes['price'].blank? }
 
   validates_attachment :photo, size: { in: 0..MAX_FIZESIZE },
     content_type: { content_type: CONTENT_TYPE_PATTERN }
