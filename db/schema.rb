@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408132855) do
+ActiveRecord::Schema.define(version: 20180409165309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,20 @@ ActiveRecord::Schema.define(version: 20180408132855) do
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
   end
 
+  create_table "images", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "temp_url"
+    t.uuid "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_images_on_deleted_at"
+    t.index ["review_id"], name: "index_images_on_review_id"
+  end
+
   create_table "manager_requests", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "restaurant_id"
     t.uuid "user_id"
@@ -94,9 +108,25 @@ ActiveRecord::Schema.define(version: 20180408132855) do
     t.string "name_unicode"
     t.datetime "deleted_at"
     t.text "comment"
+    t.integer "review_count", default: 0, null: false
+    t.integer "review_point", default: 0, null: false
     t.index ["deleted_at"], name: "index_restaurants_on_deleted_at"
     t.index ["name_unicode"], name: "index_restaurants_on_name_unicode"
     t.index ["user_id"], name: "index_restaurants_on_user_id"
+  end
+
+  create_table "reviews", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "content"
+    t.integer "point", default: 0
+    t.string "reviewable_type"
+    t.uuid "reviewable_id"
+    t.uuid "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_reviews_on_deleted_at"
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "roles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -169,9 +199,11 @@ ActiveRecord::Schema.define(version: 20180408132855) do
 
   add_foreign_key "album_images", "restaurants"
   add_foreign_key "dishes", "restaurants"
+  add_foreign_key "images", "reviews"
   add_foreign_key "manager_requests", "restaurants"
   add_foreign_key "manager_requests", "users"
   add_foreign_key "restaurants", "users"
+  add_foreign_key "reviews", "users"
   add_foreign_key "sessions", "users"
   add_foreign_key "variants", "dishes"
 end
