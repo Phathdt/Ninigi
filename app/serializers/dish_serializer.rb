@@ -7,6 +7,11 @@ class DishSerializer < BaseSerializer
     object.url(scope[:size] || :medium)
   end
 
+  attribute :rate do |dish|
+    return 0 if dish.review_count == 0
+    ( dish.review_point / dish.review_count.to_f ).round(2)
+  end
+
   attribute :variants do |object|
     object.variants.map do |variant|
       {
