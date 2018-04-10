@@ -24,9 +24,9 @@ module UserRoutes
               member do
                 get :toggle_active
                 get :toggle_public
-                resources :reviews, shallow: true, only: %i[index create destroy]
               end
               resources :variants, shallow: true, only: %i[create update destroy]
+              resources :reviews, shallow: true, only: %i[index create destroy]
             end
 
             resources :reviews, shallow: true, only: %i[index create]
