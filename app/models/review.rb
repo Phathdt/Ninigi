@@ -9,9 +9,10 @@ class Review < ApplicationRecord
 
   validates :point, numericality: {
     only_integer: true,
-    greater_than_or_equal_to: 0,
+    greater_than_or_equal_to: 1,
     less_than_or_equal_to: 5
   }
+  validates :content, presence: true
 
   accepts_nested_attributes_for :images, allow_destroy: true,
     reject_if: proc { |attributes| attributes['temp_url'].blank? }

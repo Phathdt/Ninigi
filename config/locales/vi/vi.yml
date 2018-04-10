@@ -7,6 +7,7 @@ vi:
       manager_request: Lời mời làm quản lý
       dish: Món ăn
       variant: Loại
+      review: Đánh giá
     attributes:
       user:
         name: Tên người dùng
@@ -28,6 +29,9 @@ vi:
       variant:
         size: Kích cỡ
         price: Giá
+      review:
+        content: Nội dung
+        point: Điểm
     exceptions:
       not_found: "Không tìm thấy %{klass}"
     errors:
@@ -316,6 +320,11 @@ vi:
       success: Sửa loại thành công
     destroy:
       success: Xoá loại thành công
+  reviews:
+    create:
+      success: Tạo đánh giá thành công
+    destroy:
+      success: Xoá dánh giá thành công
 
   size:
     small: Nhỏ

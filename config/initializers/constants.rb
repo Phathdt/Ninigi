@@ -2,7 +2,7 @@ EXPIRED_TIME = 1.month.to_i
 
 TOKEN_LENGTH = 192
 
-MODEL_SERIALIZER = %w[User Restaurant AlbumImage ManagerRequest Dish].freeze
+MODEL_SERIALIZER = %w[User Restaurant AlbumImage ManagerRequest Dish Review].freeze
 
 DESC_MAX_LENGTH = 3000
 
