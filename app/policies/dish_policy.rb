@@ -1,8 +1,8 @@
 class DishPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      return restaurant.dishes if have_policy?
-      restaurant.dishes.where(is_public: true)
+      return restaurant.dishes.includes(:variants) if have_policy?
+      restaurant.dishes.where(is_public: true).includes(:variants)
     end
 
     def can_show?(dish)
