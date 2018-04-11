@@ -7,6 +7,8 @@ class Session < ApplicationRecord
     !active? || (Time.current > created_at + EXPIRED_TIME)
   end
 
+  private
+
   def generate_code
     self.token = SecureRandom.base64(TOKEN_LENGTH)
   end
