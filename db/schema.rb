@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410154341) do
+ActiveRecord::Schema.define(version: 20180411153607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,40 @@ ActiveRecord::Schema.define(version: 20180410154341) do
     t.index ["restaurant_id", "user_id"], name: "index_manager_requests_on_restaurant_id_and_user_id", unique: true
     t.index ["restaurant_id"], name: "index_manager_requests_on_restaurant_id"
     t.index ["user_id"], name: "index_manager_requests_on_user_id"
+  end
+
+  create_table "order_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "order_id"
+    t.uuid "variant_id"
+    t.integer "price", default: 0, null: false
+    t.integer "quantity", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.integer "amount", default: 0, null: false
+    t.index ["deleted_at"], name: "index_order_items_on_deleted_at"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["variant_id"], name: "index_order_items_on_variant_id"
+  end
+
+  create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address"
+    t.string "phone"
+    t.text "note"
+    t.integer "state", default: 0, null: false
+    t.integer "amount", default: 0, null: false
+    t.string "hash_id", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.uuid "user_id"
+    t.uuid "restaurant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_orders_on_deleted_at"
+    t.index ["hash_id"], name: "index_orders_on_hash_id"
+    t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "restaurants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -204,6 +238,10 @@ ActiveRecord::Schema.define(version: 20180410154341) do
   add_foreign_key "images", "reviews"
   add_foreign_key "manager_requests", "restaurants"
   add_foreign_key "manager_requests", "users"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "variants"
+  add_foreign_key "orders", "restaurants"
+  add_foreign_key "orders", "users"
   add_foreign_key "restaurants", "users"
   add_foreign_key "reviews", "users"
   add_foreign_key "sessions", "users"
