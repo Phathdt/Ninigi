@@ -30,7 +30,7 @@ gem 'rack-cors', '~> 1.0.2'
 gem 'slim-rails'
 
 ## images and assset
-gem 'aws-s3'
+gem 'aws-sdk'
 gem 'mini_magick'
 gem 'paperclip'
 

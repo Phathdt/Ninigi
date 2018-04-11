@@ -43,6 +43,7 @@ class Order < ApplicationRecord
 
   validates :address, :note, presence: true, length: { minimum: 1, maximum: 254 }
   validates :phone, length: { minimum: 10, maximum: 15 }
+  validates :comment, presence: true, if: Proc.new { |order| order.canceled? }
 
   private
 
