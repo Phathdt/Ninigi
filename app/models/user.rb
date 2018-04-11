@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   has_many :sessions, dependent: :destroy
   has_many :restaurants, dependent: :destroy
+  has_many :manager_requests, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   validates :name, length: { minimum: 6, maximum: 254 }, uniqueness: { case_sensitive: false }
 end
