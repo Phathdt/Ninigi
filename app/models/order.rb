@@ -47,28 +47,18 @@ class Order < ApplicationRecord
 
   private
 
-  def send_email_starting
+  def send_email_starting; end
 
-  end
+  def send_email_approve; end
 
-  def send_email_approve
+  def send_email_reject; end
 
-  end
+  def send_email_shipping; end
 
-  def send_email_reject
-
-  end
-
-  def send_email_shipping
-
-  end
-
-  def send_email_success
-
-  end
+  def send_email_success; end
 
   def generate_hash_id
-    self.hash_id = rand(10**10+1..10**11)
+    self.hash_id = rand(10**10 + 1..10**11)
   end
 
   def calcu_amount

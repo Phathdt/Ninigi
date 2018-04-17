@@ -14,10 +14,10 @@ class OrderItem < ApplicationRecord
   private
 
   def get_price
-    self.price = self.variant.price
+    self.price = variant.price
   end
 
   def calcu_amount
-    self.amount = self.variant.price * self.quantity
+    self.amount = variant.price * quantity
   end
 end

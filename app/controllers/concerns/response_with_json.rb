@@ -31,7 +31,7 @@ module ResponseWithJson
           per_page: KAMINAGI_PER_PAGE,
           total_pages: data.total_pages,
           total_count: data.total_count,
-          current_page: data.current_page,
+          current_page: data.current_page
         }
       }
     end
