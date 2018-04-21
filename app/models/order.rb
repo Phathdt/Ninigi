@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
   belongs_to :restaurant
+  include AASM
 
   acts_as_paranoid
   geocoded_by :address
@@ -32,14 +33,14 @@ class Order < ApplicationRecord
     end
   end
 
-  accepts_nested_attributes_for :order_items, allow_destroy: true,
-    reject_if: proc { |attributes| attributes['quantity'].blank? }
-
   before_create :generate_hash_id, :calcu_amount
 
   has_many :order_items, dependent: :destroy
   has_many :variants, through: :order_items
   has_many :dishes, through: :variants
+
+  accepts_nested_attributes_for :order_items, allow_destroy: true,
+    reject_if: proc { |attributes| attributes['quantity'].blank? }
 
   validates :address, :note, presence: true, length: { minimum: 1, maximum: 254 }
   validates :phone, length: { minimum: 10, maximum: 15 }
