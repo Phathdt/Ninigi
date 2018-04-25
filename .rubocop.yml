@@ -455,13 +455,6 @@ Lint/CircularArgumentReference:
   Description: "Don't refer to the keyword argument in the default value."
   Enabled: false
 
-Lint/ConditionPosition:
-  Description: >-
-                 Checks for condition placed in a confusing position relative to
-                 the keyword.
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#same-line-condition'
-  Enabled: false
-
 Lint/DeprecatedClassMethods:
   Description: 'Check for deprecated class method calls.'
   # Enabled: false
