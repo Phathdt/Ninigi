@@ -15,3 +15,5 @@ MAX_FIZESIZE = 10.megabytes.freeze
 WHITELIST_EXTS = %w(jpg jpeg png bmp).freeze
 
 CONTENT_TYPE_PATTERN = /image\/(jpe?g|png|bmp)$/
+
+AASM_MODEL= %w[Restaurant ManagerRequest]
