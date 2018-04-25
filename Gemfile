@@ -42,6 +42,7 @@ group :development do
   gem 'pry-nav'
   gem 'pry-rails'
   gem 'rails-erd', require: false
+  gem 'aasm-diagram', require: false
 end
 
 group :development, :test do
