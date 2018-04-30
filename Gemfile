@@ -35,6 +35,7 @@ gem 'mini_magick'
 gem 'paperclip'
 
 group :development do
+  gem 'aasm-diagram', require: false
   gem 'bullet', '~> 5.5', '>= 5.5.1'
   gem 'byebug'
   gem 'foreman', '~> 0.82.0'
@@ -42,7 +43,6 @@ group :development do
   gem 'pry-nav'
   gem 'pry-rails'
   gem 'rails-erd', require: false
-  gem 'aasm-diagram', require: false
 end
 
 group :development, :test do

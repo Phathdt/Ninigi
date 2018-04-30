@@ -51,10 +51,10 @@ class ManagerRequest < ApplicationRecord
   end
 
   def add_role
-    self.manager.add_role(:manager) unless self.manager.has_role?(:manager)
+    manager.add_role(:manager) unless manager.has_role?(:manager)
   end
 
   def remove_role
-    self.manager.remove_role(:manager) unless self.manager.manager_requests.where(state: :approved).exists?
+    manager.remove_role(:manager) unless manager.manager_requests.where(state: :approved).exists?
   end
 end

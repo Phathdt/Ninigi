@@ -5,13 +5,10 @@ module UserRoutes
         namespace :v2 do
           scope module: 'normal_user', path: 'user' do
             resources :restaurants, only: %i[index show] do
-
               resources :album_images, shallow: true, only: %i[index show]
-
 
               resources :dishes, shallow: true, only: %i[index show] do
               end
-
             end
 
             resources :manager_requests, shallow: true, only: %i[index show] do
