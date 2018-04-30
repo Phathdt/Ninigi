@@ -17,7 +17,6 @@ module OwnerRoutes
                   get :approve
                   get :repending
                   post :reject
-                  post :retire
                 end
               end
 

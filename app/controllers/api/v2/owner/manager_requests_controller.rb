@@ -20,12 +20,6 @@ module Api::V2
       render_json(data, status)
     end
 
-    def approve
-      authorize @manager_request
-      data, status = service.approve(@manager_request)
-      render_json(data, status)
-    end
-
     def repending
       authorize @manager_request
       data, status = service.repending(@manager_request)

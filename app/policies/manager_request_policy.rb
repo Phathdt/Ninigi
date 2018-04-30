@@ -4,7 +4,8 @@ class ManagerRequestPolicy < ApplicationPolicy
   end
 
   def show?
-    index?
+    index? ||
+      record.manager == user
   end
 
   def create?
@@ -20,10 +21,12 @@ class ManagerRequestPolicy < ApplicationPolicy
   end
 
   def reject?
-    record.manager == user
+    index? ||
+      record.manager == user
   end
 
   def retire?
-    index? || record.manager == user
+    index? ||
+      record.manager == user
   end
 end

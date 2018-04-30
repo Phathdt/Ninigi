@@ -1,6 +1,5 @@
-module Api::V1
-  class AlbumImagesController < BaseApiController
-    prepend_before_action :authenticate_request!, only: %i[destroy]
+module Api::V2
+  class NormalUser::AlbumImagesController < NormalUser::NormalUserController
     before_action :find_restaurant, only: %i[index]
     before_action :find_album_image, only: %i[show destroy]
 
@@ -15,12 +14,6 @@ module Api::V1
       render_json(@album_image, :ok)
     end
 
-    def destroy
-      authorize @album_image
-      data, status = service.destroy(@album_image)
-      render_json(data, status)
-    end
-
     private
 
     def find_restaurant
@@ -29,15 +22,6 @@ module Api::V1
 
     def find_album_image
       @album_image ||= AlbumImage.find(params[:id])
-    end
-
-    def restaurant_params
-      params.require(:restaurants).permit(:name, :address, :phone, :desc,
-        album_images_attrs)
-    end
-
-    def album_images_attrs
-      { album_images_attributes: %i[id caption is_cover temp_url _destroy] }
     end
 
     def can_action?(user, restaurant)
