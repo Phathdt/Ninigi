@@ -1,5 +1,5 @@
 module Api::V2
-  class ReviewsController < BaseApiController
+  class Owner::ReviewsController < Owner::OwnerController
     before_action :find_reviewable, only: %i[index]
     before_action :find_review, only: %i[destroy]
 
