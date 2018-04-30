@@ -2,7 +2,7 @@ module AuthenticationRoutes
   def self.extended(router)
     router.instance_exec do
       namespace :api, defaults: { format: :json } do
-        namespace :v1 do
+        namespace :v2 do
           scope :users do
             post   :sign_up,      to: 'registrations#create'
             post   :sign_in,      to: 'sessions#create'
