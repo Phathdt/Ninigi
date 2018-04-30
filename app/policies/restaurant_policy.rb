@@ -8,10 +8,11 @@ class RestaurantPolicy < ApplicationPolicy
   end
 
   def repending?
-    update?
+    update? ||
+      record.managers.where(id: user).exists?
   end
 
   def published?
-    update?
+    repending?
   end
 end
