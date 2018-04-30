@@ -1,5 +1,5 @@
-module Api::V1
-  class RestaurantsController < BaseApiController
+module Api::V2
+  class User::RestaurantsController < User::UserController
     prepend_before_action :authenticate_request!, only: %i[create update destroy repending published]
     before_action :find_restaurant, only: %i[show update destroy repending published]
 
