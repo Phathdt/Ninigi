@@ -16,7 +16,7 @@ module ResponseWithJson
 
     if MODEL_SERIALIZER.include?(class_name)
       options = build_options(data)
-      render json: "#{class_name}Serializer".constantize.new(data, options).serialized_json
+      render_action(data, class_name, options)
     else
       render json: data, status: status
     end
@@ -42,5 +42,13 @@ module ResponseWithJson
     }
 
     options
+  end
+
+  def render_action(data, class_name, options)
+    if action_name == 'index'
+      render json: "#{class_name}Serializer".constantize.new(data, options).serialized_json
+    else
+      render json: "Detail#{class_name}Serializer".constantize.new(data, options).serialized_json
+    end
   end
 end
