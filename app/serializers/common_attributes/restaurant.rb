@@ -12,10 +12,13 @@ module CommonAttributes
       end
 
 
-      # attribute :rate do |restaurant|
-      #   return 0 if restaurant.review_count == 0
-      #   ( restaurant.review_point / restaurant.review_count.to_f ).round(2)
-      # end
+      attribute :rate do |restaurant|
+        if restaurant.review_count.zero?
+          0
+        else
+          ( restaurant.review_point / restaurant.review_count.to_f ).round(2)
+        end
+      end
     end
   end
 end
