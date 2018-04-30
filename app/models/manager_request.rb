@@ -10,7 +10,7 @@ class ManagerRequest < ApplicationRecord
 
     after_all_transitions :send_email_manager_request
 
-    event :approve do
+    event :approve, after: :add_role do
       transitions from: :pending, to: :approved
     end
 
@@ -20,9 +20,10 @@ class ManagerRequest < ApplicationRecord
 
     event :repending, after: :remove_comment do
       transitions from: :suspended, to: :pending
+      transitions from: :retired, to: :pending
     end
 
-    event :retire do
+    event :retire, after: :remove_role do
       transitions from: :approved, to: :retired
     end
   end
@@ -47,5 +48,13 @@ class ManagerRequest < ApplicationRecord
 
   def send_email_manager_request
     SendEmailManagerRequestJob.perform_later(restaurant, manager, aasm.from_state.to_s, aasm.to_state.to_s, I18n.locale.to_s)
+  end
+
+  def add_role
+    self.manager.add_role(:manager) unless self.manager.has_role?(:manager)
+  end
+
+  def remove_role
+    self.manager.remove_role(:manager) unless self.manager.manager_requests.where(state: :approved).exists?
   end
 end
