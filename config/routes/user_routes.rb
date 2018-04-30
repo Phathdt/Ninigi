@@ -10,10 +10,8 @@ module UserRoutes
 
 
               resources :dishes, shallow: true, only: %i[index show] do
-                resources :reviews, shallow: true, only: %i[index create]
               end
 
-              # resources :reviews, shallow: true, only: %i[index create]
             end
 
             resources :manager_requests, shallow: true, only: %i[index show] do
@@ -23,6 +21,8 @@ module UserRoutes
                 post :retire
               end
             end
+
+            resources :reviews, only: %i[index create]
           end
         end
       end

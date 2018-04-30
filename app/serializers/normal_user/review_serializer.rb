@@ -1,4 +1,4 @@
-class ReviewSerializer < BaseSerializer
+class NormalUser::ReviewSerializer < BaseSerializer
   attributes :content, :point
   set_type :reviews
   set_key_transform :camel_lower
