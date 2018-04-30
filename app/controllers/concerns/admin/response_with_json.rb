@@ -13,26 +13,4 @@ module Admin::ResponseWithJson
       render json: data, status: status
     end
   end
-
-  def build_options(data)
-    options = {}
-
-    if action_name == 'index'
-      options[:meta] = {
-        pagination: {
-          per_page: KAMINAGI_PER_PAGE,
-          total_pages: data.total_pages,
-          total_count: data.total_count,
-          current_page: data.current_page
-        }
-      }
-    end
-
-    options[:scope] = {
-      current_user: current_user || User.new,
-      size: params[:size]&.to_sym
-    }
-
-    options
-  end
 end

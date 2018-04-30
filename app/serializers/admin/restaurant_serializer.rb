@@ -11,8 +11,4 @@ class Admin::RestaurantSerializer < BaseSerializer
   #   return 0 if restaurant.review_count == 0
   #   ( restaurant.review_point / restaurant.review_count.to_f ).round(2)
   # end
-
-  attribute :extendAttributes do |object|
-    scope[:current_user].has_role?(:admin) ? 'tao la admin tao co quyen' : { "em la thuong dan": 1 }
-  end
 end
