@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  # extend AuthenticationRoutes
-  # extend AdminRoutes
-  # extend OwnerRoutes
+  extend AuthenticationRoutes
+  extend AdminRoutes
+  extend OwnerRoutes
   extend UserRoutes
 
   devise_for :users, only: []
