@@ -18,6 +18,10 @@ module CommonAttributes
           (dish.review_point / dish.review_count.to_f).round(2)
         end
       end
+
+      attribute :price do |object|
+        object.variants.map(&:price).min
+      end
     end
   end
 end

@@ -9,14 +9,9 @@ module UserRoutes
               resources :album_images, shallow: true, only: %i[index show]
 
 
-              # resources :dishes, shallow: true, only: %i[index show create update destroy] do
-              #   member do
-              #     get :toggle_active
-              #     get :toggle_public
-              #   end
-              #   resources :variants, shallow: true, only: %i[create update destroy]
-              #   resources :reviews, shallow: true, only: %i[index create destroy]
-              # end
+              resources :dishes, shallow: true, only: %i[index show] do
+                resources :reviews, shallow: true, only: %i[index create]
+              end
 
               # resources :reviews, shallow: true, only: %i[index create]
             end

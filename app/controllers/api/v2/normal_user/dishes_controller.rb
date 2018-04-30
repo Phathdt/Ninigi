@@ -1,9 +1,7 @@
-module Api::V1
-  class DishesController < BaseApiController
-    prepend_before_action :authenticate_request!, only: %i[create update destroy toggle_active toggle_public]
-    before_action :find_restaurant, only: %i[index create]
-    before_action :find_dish, only: %i[show update destroy toggle_active toggle_public]
-    before_action :authorize_dish, only: %i[update destroy toggle_active toggle_public]
+module Api::V2
+  class NormalUser::DishesController < NormalUser::NormalUserController
+    before_action :find_restaurant, only: %i[index]
+    before_action :find_dish, only: %i[show]
 
     def index
       return render_missing_restaurant unless can_action?(current_user, @restaurant)
