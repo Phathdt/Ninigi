@@ -1,6 +1,5 @@
-module Api::V1
-  class ManagerRequestsController < BaseApiController
-    prepend_before_action :authenticate_request!, only: %i[]
+module Api::V2
+  class Owner::ManagerRequestsController < Owner::OwnerController
     before_action :find_restaurant, only: %i[index create]
     before_action :find_manager_request, only: %i[show destroy approve repending reject retire]
 
@@ -60,7 +59,7 @@ module Api::V1
     end
 
     def manager_request_params
-      params.require(:manager_request).permit(:manager_id)
+      params.require(:manager_request).permit(:user_id)
     end
 
     def comment_params
