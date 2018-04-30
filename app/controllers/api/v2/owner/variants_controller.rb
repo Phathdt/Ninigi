@@ -1,6 +1,5 @@
 module Api::V2
   class Owner::VariantsController < Owner::OwnerController
-    prepend_before_action :authenticate_request!, only: %i[create update destroy]
     before_action :find_dish, only: %i[create]
     before_action :find_variant, only: %i[update destroy]
     before_action :authorize_variant, only: %i[update destroy]

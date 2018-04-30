@@ -1,6 +1,5 @@
 module Api::V2
   class Owner::DishesController < Owner::OwnerController
-    prepend_before_action :authenticate_request!, only: %i[create update destroy toggle_active toggle_public]
     before_action :find_restaurant, only: %i[index create]
     before_action :find_dish, only: %i[show update destroy toggle_active toggle_public]
     before_action :authorize_dish, only: %i[update destroy toggle_active toggle_public]

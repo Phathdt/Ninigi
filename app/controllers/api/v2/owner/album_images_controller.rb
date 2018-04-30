@@ -1,6 +1,5 @@
 module Api::V2
   class Owner::AlbumImagesController < Owner::OwnerController
-    prepend_before_action :authenticate_request!, only: %i[destroy]
     before_action :find_restaurant, only: %i[index]
     before_action :find_album_image, only: %i[show destroy]
 

@@ -1,6 +1,5 @@
 module Api::V2
   class Owner::RestaurantsController < Owner::OwnerController
-    prepend_before_action :authenticate_request!, only: %i[create update destroy repending published]
     before_action :find_restaurant, only: %i[show update destroy repending published]
 
     def index
