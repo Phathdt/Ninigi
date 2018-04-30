@@ -6,8 +6,6 @@ module Reviewable
   included do
     has_many :reviews, as: :reviewable, dependent: :destroy
 
-    after_update :calcu_average
-
     scope :order_by_average, -> { unscope_order.order(ORDER_BY_AVERAGE) }
   end
 end
