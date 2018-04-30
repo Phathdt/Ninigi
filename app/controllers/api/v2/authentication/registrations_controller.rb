@@ -1,5 +1,5 @@
 module Api::V2
-  class RegistrationsController < BaseApiController
+  class Authentication::RegistrationsController < Authentication::AuthenticationController
     def create
       data, status = service.create(registration_params)
       render_json(data, status)

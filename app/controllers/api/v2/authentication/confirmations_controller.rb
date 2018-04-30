@@ -1,5 +1,5 @@
 module Api::V2
-  class ConfirmationsController < BaseApiController
+  class Authentication::ConfirmationsController < Authentication::AuthenticationController
     def show
       data, status = service.show(params)
       render_json(data, status)

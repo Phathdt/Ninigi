@@ -1,5 +1,5 @@
 module Api::V2
-  class PasswordsController < BaseApiController
+  class Authentication::PasswordsController < Authentication::AuthenticationController
     prepend_before_action :authenticate_request!, only: %i[change]
 
     def create
