@@ -30,7 +30,6 @@ gem 'rack-cors', '~> 1.0.2'
 gem 'slim-rails'
 
 ## images and assset
-gem 'aws-sdk'
 gem 'mini_magick'
 gem 'paperclip'
 
@@ -43,6 +42,7 @@ group :development do
   gem 'pry-nav'
   gem 'pry-rails'
   gem 'rails-erd', require: false
+  gem 'aws-sdk'
 end
 
 group :development, :test do
